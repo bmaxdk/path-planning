@@ -162,17 +162,32 @@ A fragment of the attractive potential field:
 The repulsive potential field is a function that is equal to zero in free space, and grows to a large value near obstacles. One way to create such a potential field.
 
 
-   $$\nu_{rep} (\frac{1}{\rho(x)} - \frac{1}{\rho_{0}})  ~~~~ ~~~~  ~~~~    ~~~~  ~~~~  ~~~~  ~~~~  if \rho \leq \rho_{0}$$
+   $$\nu_{rep} (\frac{1}{\rho(x)} - \frac{1}{\rho_{0}})^{2}  ~~~~ ~~~~  ~~~~    ~~~~  ~~~~  ~~~~  ~~~~  if \rho \leq \rho_{0}$$
 $~~~~ ~~~~  ~~~~  ~~~~  ~~~~  ~~~~  ~~~~  ~~~~  ~~~~   ~~~~ f_{rep} ~~~~ ~~~~ ~~~~ =  $ 
         
    $$ 0  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ if \rho > \rho_{0}$$
 
 
+* The function $\rho (x)$ returns the distance from the robot to its nearest obstacle.
+* $\rho_{0}$ is a scaling parameter that defines the reach of an obstacle's repulsiveness.
+* $\nu$ is a scaling parameter.
+
+
+An image of a repulsive potential field for an arbitrary configuration space
+![alt text][image16]
+
+The value $\rho_{0}$ controls how far from an obstacle the potential field will be non-zero, and how steep the area surrounding an obstacle will be.
+
+#### Potential Field Sum
+The attractive and repulsive functions are summed to produce the potential field that is used to guide the robot from anywhere in the space to the goal.
+![alt text][image17]
+The gradient of the function dictates which direction the robot should move, and the speed can be set to be constant or scaled in relation to the distance between the robot and the goal.
 
 
 
 ## Sample-Based Planning
 Sample-based path planning probes the workspace to incrementally construct a graph. Instead of discretizing every segment of the workspace, sample-based planning takes a number of samples and uses them to build a discrete representation of the workspace. The resultant graph is not as precise as one created using discrete planning, but it is much quicker to construct because of the relatively small number of samples used. A path generated using sample-based planning may not be the best path, but in certain applications - it’s better to generate a feasible path quickly than to wait hours or even days to generate the optimal path.
+
 
 
 ## Probabilistic Path Planning
