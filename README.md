@@ -153,6 +153,22 @@ The attractive potential field is a function with the global minimum at the goal
 
 $f_{att} (x) = \nu_{att} (||x-x_{goal}||)^{2}$
 
+where x represents the robot's current position, and $x_{goal}$ the goal position. $/nu$ is a scaling factor.
+
+A fragment of the attractive potential field:
+![alt text][image15]
+
+#### Repulsive Potential Field
+The repulsive potential field is a function that is equal to zero in free space, and grows to a large value near obstacles. One way to create such a potential field.
+
+
+   $$\nu (\frac{1}{\rho(x)} - \frac{1}{\rho_{0}})       if \rho \leq \rho_{0}$$
+        $f_{rep}$ = 
+   $$ 0  if \rho > \rho_{0}$$
+
+
+
+
 
 ## Sample-Based Planning
 Sample-based path planning probes the workspace to incrementally construct a graph. Instead of discretizing every segment of the workspace, sample-based planning takes a number of samples and uses them to build a discrete representation of the workspace. The resultant graph is not as precise as one created using discrete planning, but it is much quicker to construct because of the relatively small number of samples used. A path generated using sample-based planning may not be the best path, but in certain applications - it’s better to generate a feasible path quickly than to wait hours or even days to generate the optimal path.
