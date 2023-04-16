@@ -52,7 +52,7 @@ where p+r = ($p_{x}+r_{x}, p_{y}+r_{y}$)
 The [Minkowski sum](https://github.com/bmaxdk/path-planning/blob/main/minkowski_sum.cpp) is a mathematical property that can be used to compute the configuration space given an obstacle geometry and robot geometry. To create the configuration space, the Minkowski sum is calculated in such a way for every obstacle in the workspace. The image below shows three configuration spaces created from a single workspace with three different sized robots.
 ![alt text][image5]
 For convex polygons, computing the convolution is trivial and can be done in linear time - however for non-convex polygons (i.e. ones with gaps or holes present), the computation is much more expensive. 
-Plot chekc [RoboND-MinkowskiSum](https://github.com/udacity/RoboND-MinkowskiSum)
+Plot check [RoboND-MinkowskiSum](https://github.com/udacity/RoboND-MinkowskiSum)
 
 
 ## Sample-Based Planning
