@@ -45,7 +45,7 @@ This kinds of environment is the configuration space(C space). A configuration s
 ### Minkowski Sum
 Let P and R be two sets in $\mathbb{R}_{2}$
 
-$P \oplus R$ = {p+r | p$\in$P $n$ r$\in$R}
+$P \oplus R$ = {p+r | p $\in$ P $\wedge$ r $\in$ R}
 
 The Minkowski sum is a mathematical property that can be used to compute the configuration space given an obstacle geometry and robot geometry. To create the configuration space, the Minkowski sum is calculated in such a way for every obstacle in the workspace. The image below shows three configuration spaces created from a single workspace with three different sized robots.
 ![alt text][image5]
