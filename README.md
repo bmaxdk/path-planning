@@ -162,8 +162,8 @@ A fragment of the attractive potential field:
 The repulsive potential field is a function that is equal to zero in free space, and grows to a large value near obstacles. One way to create such a potential field.
 
 
-   $$\nu_{rep} (\frac{1}{\rho(x)} - \frac{1}{\rho_{0}})  ~~~~  ~~~~  ~~~~  ~~~~  ~~~~  if \rho \leq \rho_{0}$$
-$~~~~ ~~~~ f_{rep} ~~~~ ~~~~ ~~~~ =  $ 
+   $$\nu_{rep} (\frac{1}{\rho(x)} - \frac{1}{\rho_{0}})  ~~~~ ~~~~  ~~~~    ~~~~  ~~~~  ~~~~  ~~~~  if \rho \leq \rho_{0}$$
+$~~~~ ~~~~  ~~~~  ~~~~  ~~~~  ~~~~  ~~~~  ~~~~  ~~~~   ~~~~ f_{rep} ~~~~ ~~~~ ~~~~ =  $ 
         
    $$ 0  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ if \rho > \rho_{0}$$
 
