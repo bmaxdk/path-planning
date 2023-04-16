@@ -27,7 +27,20 @@ Three different approaches:
 
 ## Discrete Planning
 Discretize the robot’s workspace into a connected graph, and apply a graph-search algorithm to calculate the best path. It is very computationall very expensive. Therefore, it is best suited for low-dimensional problems. For high-dimensional problems, sample-based path planning is a more appropriate approach.
+![alt text][image1]
+* Develop a convenient `continuous representation`. This can be done by representing the problem space as the configuration space (C space). C space takes into account the geometry of the robot and makes it easier to apply discrete search algorithms.
+* `Discretization`. The configuration space must be discretized into a representation that is more easily manipulated by algorithms.
+* `Graph Search`. The descretized space is represented by a graph to use search algorithm. Find the best path from the start node to the goal node. 
 
+### Continuous Representation
+Find a curved or piece wise linear path connecting the robot start pose to the goal pose that does not collied with any obstacles.
+![alt text][image2]
+![alt text][image3]
+Inflate every single obstacle by the radius of the robot and then treat the robot as a point.
+
+![alt text][image4]
+This kinds of environment is the configuration space(C space). A configuration space is a set of all robot poses. The C space is divided into $C_{free}$ and $C_{obstacle}$. $C_{obstacle}$ is the compliment to $C_{free}$ representing the set of robot pauses that are in collision with obstacles or walls.
+ 
 
 
 ## Sample-Based Planning
