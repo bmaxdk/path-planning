@@ -11,9 +11,16 @@
 [image10]: image/a10.png "img10"
 
 [image11]: image/a11.png "img11"
-[image22]: image/a12.png "img12"
-[image33]: image/a13.png "img13"
-[image44]: image/a14.png "img14"
+[image12]: image/a12.png "img12"
+[image13]: image/a13.png "img13"
+[image14]: image/a14.png "img14"
+
+[image15]: image/a15.png "img15"
+[image16]: image/a16.png "img16"
+[image17]: image/a17.png "img17"
+[image18]: image/a18.png "img18"
+
+
 
 # path-planning
 Path Planning
@@ -182,6 +189,7 @@ The value $\rho_{0}$ controls how far from an obstacle the potential field will 
 The attractive and repulsive functions are summed to produce the potential field that is used to guide the robot from anywhere in the space to the goal.
 ![alt text][image17]
 The gradient of the function dictates which direction the robot should move, and the speed can be set to be constant or scaled in relation to the distance between the robot and the goal.
+
 
 
 
