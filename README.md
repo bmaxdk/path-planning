@@ -3,12 +3,12 @@
 [image3]: image/a3.png "img3"
 [image4]: image/a4.png "img4"
 
-[image1]: image/a5.png "img5"
-[image2]: image/a6.png "img6"
-[image3]: image/a7.png "img7"
-[image4]: image/a8.png "img8"
-[image3]: image/a9.png "img9"
-[image4]: image/a10.png "img10"
+[image5]: image/a5.png "img5"
+[image6]: image/a6.png "img6"
+[image7]: image/a7.png "img7"
+[image8]: image/a8.png "img8"
+[image9]: image/a9.png "img9"
+[image10]: image/a10.png "img10"
 
 [image11]: image/a11.png "img11"
 [image22]: image/a12.png "img12"
@@ -61,6 +61,52 @@ The dimension of the configuration space is equal to the number of degrees of fr
 ![alt text][image6]
 The image above displays the configuration space for a triangular robot that is able to translate in two dimensions as well as rotate about its z-axis. 
 [Configuration Space Visualization](https://www.youtube.com/watch?v=SBFwgR4K1Gk&ab_channel=Dr.DrorAtariah)
+
+### Roadmap
+These methods represent the configuration space using a simple connected graph - similar to how a city can be represented by a metro map.
+
+![alt text][image7]
+
+Roadmap methods are typically implemented in two phases:
+
+* The `construction phase` builds up a graph from a continuous representation of the space. This phase usually takes a significant amount of time and effort, but the resultant graph can be used for multiple queries with minimal modifications.
+* The `query phase` evaluates the graph to find a path from a start location to a goal location. This is done with the help of a search algorithm.
+
+### Visibility Graph
+The Visibility Graph builds a roadmap by connecting the start node, all of the obstacles’ vertices, and goal node to each other - except those that would result in collisions with obstacles. The Visibility Graph has its name for a reason - it connects every node to all other nodes that are ‘visible’ from its location.
+
+* `Nodes`: Start, Goal, and all obstacle vertices.
+* `Edges`: An edge between two nodes that does not intersect an obstacle, including obstacle edges.
+
+![alt text][image8]
+
+The motivation for building Visibility Graphs is that the shortest path from the start node to the goal node will be a piecewise linear path that bends only at the obstacles’ vertices. This makes sense intuitively - the path would want to hug the obstacles’ corners as tightly as possible, as not to add any additional length. In certain applications, such as animation or path planning for video games, this is acceptable. However the uncertainty of real-world robot localization makes this method impractical. [Complete and optimal path]
+
+### Voronoi Diagram
+Another discretization method that generates a roadmap is called the Voronoi Diagram. Unlike the visibility graph method which generates the shortest paths, Voronoi Diagrams maximize clearance between obstacles. A Voronoi Diagram is a graph whose edges bisect the free space in between obstacles. Every edge lies equidistant from each obstacle around it - with the greatest amount of clearance possible.
+
+![alt text][image9]
+
+Once a Voronoi Diagram is constructed for a workspace, it can be used for multiple queries. Start and goal nodes can be connected into the graph by constructing the paths from the nodes to the edge closest to each of them.
+
+Every edge will either be a straight line, if it lies between the edges of two obstacles, or it will be a quadratic, if it passes by the vertex of an obstacle. [Complete path]
+
+### Cell Decomposition
+Another discretization method that can be used to convert a configuration space into a representation that can easily be explored by a search algorithm is `cell decomposition`. Cell decomposition divides the space into discrete cells, where each cell is a node and adjacent cells are connected with edges. There are two distinct types of cell decomposition:
+
+* Exact Cell Decomposition
+* Approximate Cell Decomposition.
+
+#### Exact Cell Decomposition
+Exact cell decomposition divides the space into `non-overlapping cells`. This is commonly done by breaking up the space into triangles and trapezoids, which can be accomplished by adding vertical line segments at every obstacle’s vertex. 
+![alt text][image10]
+Once a space has been decomposed, the resultant graph can be used to search for the shortest path from start to goal.
+![alt text][image11]
+Exact cell decomposition is elegant because of its precision and completeness. Every cell is either ‘full’, meaning it is completely occupied by an obstacle, or it is ‘empty’, meaning it is free. And the union of all cells exactly represents the configuration space. If a path exists from start to goal, the resultant graph will contain it.
+
+To implement exact cell decomposition, the algorithm must order all obstacle vertices along the x-axis, and then for every vertex determine whether a new cell must be created or whether two cells should be merged together. Such an algorithm is called the `Plane Sweep algorithm`.
+
+#### Approximate Cell Decomposition
 
 
 
