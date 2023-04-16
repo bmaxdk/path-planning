@@ -27,6 +27,7 @@ Three different approaches:
 
 ## Discrete Planning
 Discretize the robot’s workspace into a connected graph, and apply a graph-search algorithm to calculate the best path. It is very computationall very expensive. Therefore, it is best suited for low-dimensional problems. For high-dimensional problems, sample-based path planning is a more appropriate approach.
+
 ![alt text][image1]
 * Develop a convenient `continuous representation`. This can be done by representing the problem space as the configuration space (C space). C space takes into account the geometry of the robot and makes it easier to apply discrete search algorithms.
 * `Discretization`. The configuration space must be discretized into a representation that is more easily manipulated by algorithms.
@@ -40,7 +41,11 @@ Inflate every single obstacle by the radius of the robot and then treat the robo
 
 ![alt text][image4]
 This kinds of environment is the configuration space(C space). A configuration space is a set of all robot poses. The C space is divided into $C_{free}$ and $C_{obstacle}$. $C_{obstacle}$ is the compliment to $C_{free}$ representing the set of robot pauses that are in collision with obstacles or walls.
- 
+
+### Minkowski Sum
+The Minkowski sum is a mathematical property that can be used to compute the configuration space given an obstacle geometry and robot geometry. To create the configuration space, the Minkowski sum is calculated in such a way for every obstacle in the workspace. The image below shows three configuration spaces created from a single workspace with three different sized robots.
+![alt text][image5]
+For convex polygons, computing the convolution is trivial and can be done in linear time - however for non-convex polygons (i.e. ones with gaps or holes present), the computation is much more expensive.
 
 
 ## Sample-Based Planning
