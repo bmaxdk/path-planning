@@ -43,6 +43,10 @@ Inflate every single obstacle by the radius of the robot and then treat the robo
 This kinds of environment is the configuration space(C space). A configuration space is a set of all robot poses. The C space is divided into $C_{free}$ and $C_{obstacle}$. $C_{obstacle}$ is the compliment to $C_{free}$ representing the set of robot pauses that are in collision with obstacles or walls.
 
 ### Minkowski Sum
+Let P and R be two sets in $\mathbb{R}_{2}$
+
+$P \oplus R$ = {p+r | p$\in$P $n$ r$\in$R}
+
 The Minkowski sum is a mathematical property that can be used to compute the configuration space given an obstacle geometry and robot geometry. To create the configuration space, the Minkowski sum is calculated in such a way for every obstacle in the workspace. The image below shows three configuration spaces created from a single workspace with three different sized robots.
 ![alt text][image5]
 For convex polygons, computing the convolution is trivial and can be done in linear time - however for non-convex polygons (i.e. ones with gaps or holes present), the computation is much more expensive.
