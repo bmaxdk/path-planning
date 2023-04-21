@@ -149,7 +149,7 @@ With enough computation, approximate cell decomposition approaches completeness.
 
 Approximate cell decomposition is functional, but like all discrete/combinatorial path planning methods - it starts to be computationally intractable for use with high-dimensional environments.
 
-### ***Potential Field
+### ***Potential Field***
 
 Unlike the methods discussed thus far that discretize the continuous space into a connected graph, the potential field method performs a different type of discretization.
 
@@ -191,7 +191,7 @@ The attractive and repulsive functions are summed to produce the potential field
 The gradient of the function dictates which direction the robot should move, and the speed can be set to be constant or scaled in relation to the distance between the robot and the goal.
 
 
-
+### ***Graph Search***
 
 
 
