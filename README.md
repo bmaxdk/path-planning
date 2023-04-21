@@ -133,7 +133,9 @@ The algorithm behind approximate cell decomposition is much simpler than the exa
 ![alt text][image13]
 ```
 Decompose the configuration space into four cells, label cells free, mixed, or full.
+
 Search for a sequence of free cells that connect the start node to the goal node.
+
 if (sequence exists):
     Return path
 
