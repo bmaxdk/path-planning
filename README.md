@@ -193,6 +193,8 @@ The gradient of the function dictates which direction the robot should move, and
 
 
 
+
+
 ## Sample-Based Planning
 Sample-based path planning probes the workspace to incrementally construct a graph. Instead of discretizing every segment of the workspace, sample-based planning takes a number of samples and uses them to build a discrete representation of the workspace. The resultant graph is not as precise as one created using discrete planning, but it is much quicker to construct because of the relatively small number of samples used. A path generated using sample-based planning may not be the best path, but in certain applications - it’s better to generate a feasible path quickly than to wait hours or even days to generate the optimal path.
 
@@ -201,3 +203,14 @@ Sample-based path planning probes the workspace to incrementally construct a gra
 ## Probabilistic Path Planning
 While the first two approaches looked at the path planning problem generically - with no understanding of who or what may be executing the actions - probabilistic path planning takes into account the uncertainty of the robot’s motion. It's used in reinforcement learning as well such as reward.
 
+
+# Review
+## Discrete Path Planning
+* Continuous Representation
+    * Create a configuration space.
+* Discretization
+    * Three different types of methods used to represent a configuration space with discrete segments.
+        * ***Roadmap*** group of methods: Modeled the configuration space as a simple graph by either connecting the vertices of the obstacles or building a Voronoi diagram.
+        * ***Cell Decomposition***: Broke the space into a finite number of cells, each of which was assessed to be empty, full, or mixed. The empty cells will linked together to create a graph.
+        ^ ***Gradient field***: Method that models the configuration space using a 3D function that has the goal as global minimum and obstacles as tall structures.
+* Graph Search
