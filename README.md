@@ -203,8 +203,8 @@ The gradient of the function dictates which direction the robot should move, and
 ![alt text][image19]
 
 Types of Search Algorithm:
-* **Uniformed** : Search blindly which are not provided with any information about the whereabouts of the goal. ***Breadth-First Search***, ***Depth-First Search***, Uniform Cost Search***
-* **Informed** : Can guid the search algorithm to make more intelligeent decisions which are provided with information pertaining to the location of the goal. ***A* search***
+* **Uniformed** : Search blindly which are not provided with any information about the whereabouts of the goal. ***Breadth-First Search***, ***Depth-First Search***, ***Uniform Cost Search***
+* **Informed** : Can guid the search algorithm to make more intelligeent decisions which are provided with information pertaining to the location of the goal. `A* search`
 
 
 
