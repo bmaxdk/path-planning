@@ -20,7 +20,10 @@
 [image17]: image/a17.png "img17"
 [image18]: image/a18.png "img18"
 
-
+[image19]: image/a19.png "img19"
+[image20]: image/a20.png "img20"
+[image21]: image/a21.png "img21"
+[image22]: image/a22.png "img22"
 
 # path-planning
 Path Planning
@@ -33,6 +36,8 @@ Three different approaches:
 * `Probabilistic path planning`
 
 ## Discrete Planning
+![alt text][image18]
+
 Discretize the robot’s workspace into a connected graph, and apply a graph-search algorithm to calculate the best path. It is very computationall very expensive. Therefore, it is best suited for low-dimensional problems. For high-dimensional problems, sample-based path planning is a more appropriate approach.
 
 ![alt text][image1]
@@ -194,6 +199,12 @@ The gradient of the function dictates which direction the robot should move, and
 
 
 ### ***Graph Search***
+**Graph Search** is used to find finite sequence of discrete action to connect a start state to a goal state.
+![alt text][image19]
+
+Types of Search Algorithm:
+* **Uniformed** : Search blindly which are not provided with any information about the whereabouts of the goal. ***Breadth-First Search***, ***Depth-First Search***, Uniform Cost Search***
+* **Informed** : Can guid the search algorithm to make more intelligeent decisions which are provided with information pertaining to the location of the goal. ***A* search***
 
 
 
