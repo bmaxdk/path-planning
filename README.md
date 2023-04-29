@@ -206,6 +206,16 @@ Types of Search Algorithm:
 * **Uniformed** : Search blindly which are not provided with any information about the whereabouts of the goal. ***Breadth-First Search***, ***Depth-First Search***, ***Uniform Cost Search***
 * **Informed** : Can guid the search algorithm to make more intelligeent decisions which are provided with information pertaining to the location of the goal. `A* search`
 
+**** Breadth-First Search (BFS)
+![alt text][image20]
+Breadth-First Search is the data structure underlying the frontier is a ***queue***. In a queue, the first element to enteer will be the first to exit. Add child nodes of the first node that will be added to frontier. BFS is still complete and optimal since it will always find goal soluttion. It is optimal because it will always find tthe shorteest solution since it explorees the shortest routes firs. However, it might take the algorithm a long time to find the solution. Therefore, algorithm is not efficient.
+![alt text][image21]
+
+**** Depth-First Search (DFS)
+Depth-First Search
+* (DFS)
+
+
 
 
 ## Sample-Based Planning
