@@ -78,7 +78,7 @@ void print2DVector(const T& vec)
     {
         for (const auto& elem : row)
         {
-            std::cout << elem << " ";
+            std::cout << elem << ' ';
         }
         std::cout << std::endl;
     }
