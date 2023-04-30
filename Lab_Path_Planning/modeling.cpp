@@ -26,10 +26,18 @@ public:
                                 {0, 0, 0, 1, 1, 0}};
 };
 
-/* TODO: Define a Planner class
-   Inside the Planner class, define the start, goal, cost, movements, and movements_arrows
-   Note: The goal should be defined it terms of the mapWidth and mapHeight
+/* 
+    Define a Planner class wheree stat(0,0), goal(4,5), cost =1
+    Inside the Planner class, define the start, goal, cost, movements, and movements_arrows
+    Note: The goal should be defined it terms of the mapWidth and mapHeight
 */
+class Planner : Map {
+public:
+    int start[2] = {0, 0};
+    int goal[2] = {h-1, w-1};
+    int cost = 1;
+    
+};
 
 /* TODO: Define a print2DVector function which will print 2D vectors of any data type
    Example
