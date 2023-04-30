@@ -42,6 +42,8 @@ The Direction of Movement vector is a collection of four different 2D vectors ea
 
 The Cost of Movement value indicates how much it cost to move from one cell to another.
 
+[1_modeling.cpp](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/1_modeling.cpp)
+
 ## BFS: Expansion List
 
 
