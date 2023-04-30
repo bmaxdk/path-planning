@@ -35,6 +35,13 @@
 [image29]: image/a29.png "img29"
 [image30]: image/a30.png "img30"
 
+[image31]: image/a31.png "img31"
+[image32]: image/a32.png "img32"
+[image33]: image/a33.png "img33"
+[image34]: image/a34.png "img34"
+[image35]: image/a35.png "img35"
+[image36]: image/a36.png "img36"
+
 # path-planning
 Path Planning
 
@@ -236,12 +243,16 @@ As shown above higher cost to the edge is consider delay. The ***Uniform Cost Se
 As shown above the first child nodes of path costs are 1<2 which start to explore lowst costs (left node).
 ![alt text][image27]
 
-
+Uniform Cost search explore nodes with lowest path costs first. To accommodate this, it use a ***priority queue*** that is a queue that is organized by the path cost.
 ![alt text][image28]
+![alt text][image29]
+![alt text][image30]
+![alt text][image31]
 
+Uniform Cost Search is complete if every step cost is greater than some value, otherwise it can get stuck in infinitee loops. And it is also optimal.
 
-
-
+**** A* Search
+`A* Search`
 
 
 ## Sample-Based Planning
@@ -263,3 +274,10 @@ While the first two approaches looked at the path planning problem generically -
         * ***Cell Decomposition***: Broke the space into a finite number of cells, each of which was assessed to be empty, full, or mixed. The empty cells will linked together to create a graph.
         * ***Gradient field***: Method that models the configuration space using a 3D function that has the goal as global minimum and obstacles as tall structures.
 * Graph Search
+    * `A* Search`admissibility is a requirement for A* to be optimal. For this reason, common heuristics include the Euclidean distance from a node to the goal, or in some applications the Manhattan distance. When comparing two different types of values - for instance, if the path cost is measured in hours, but the heuristic function is estimating distance - then you would need to determine a scaling parameter to be able to sum the two in a useful manner. 
+    * [A* search hueristic guide](http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html)
+    * [Path Finding Visualization](https://qiao.github.io/PathFinding.js/visual/)
+    * [MovingAI A* Variance](https://movingai.com/astar-var.html)
+    * [Variants of A* - Stanford](http://theory.stanford.edu/~amitp/GameProgramming/Variations.html)
+    
+    
