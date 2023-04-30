@@ -3,7 +3,6 @@ The purpose of this lab is to find the shortest path for a robot moving inside a
 
 ## Modeling
 ***Grid(5x6)***
-
 ```text
 0 1 0 0 0 0
 0 1 0 0 0 0
@@ -11,7 +10,6 @@ The purpose of this lab is to find the shortest path for a robot moving inside a
 0 1 0 0 0 0
 0 0 0 1 1 0
 ```
-
 Where 1's represent obstacles and 0's represent free space.
 
 ***Robot Start position***: 0,0
