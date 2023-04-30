@@ -17,7 +17,6 @@ Where 1's represent obstacles and 0's represent free space.
 ***Robot Start position***: 0,0
 
 ***Robot Goal Position***: 4,5
-
 ```text
 s 1 0 0 0 0
 0 1 0 0 0 0
