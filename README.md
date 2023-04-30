@@ -212,8 +212,14 @@ Breadth-First Search is the data structure underlying the frontier is a ***queue
 ![alt text][image21]
 
 **** Depth-First Search (DFS)
-Depth-First Search
-* (DFS)
+![alt text][image22]
+Depth-First Search expand newly visited nodes first. The data structrue undrlying the frontier will be ***stack***. DFS is exploring deep on the upwards direction. DFS is neither complete, nor optimal, nor efficient.
+![alt text][image23]
+
+
+**** Uniform Cost Search
+As shown in BFS and DFS are not too efficient
+![alt text][image24]
 
 
 
