@@ -71,9 +71,22 @@ void print2DVector(T &Vec)
     }
 }
 
+template<typename T>
+void print2DVector(const T& vec)
+{
+    for (const auto& row : vec)
+    {
+        for (const auto& elem : row)
+        {
+            std::cout << elem << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
 // Specialization for dynamic 2D vectors
 template <typename T>
-void print2DVector(vector<vector<T>> Vec)
+void print2DVector(const vector<vector<T>> &Vec)
 {
     for (int i = 0; i < Vec.size(); i++)
     {
