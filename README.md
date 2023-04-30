@@ -274,7 +274,8 @@ It represents the distance from a node to the goal. It is estimation of the dist
 Minimizing g(n) favors shorter paths and minimizing h(n) favors paths in the direction of the goal. A* searches for the shortest path in the direction of the goal. For valid heuristic, h(x) would be the Euclidean distance from a node to the goal. Nodes close to the goal have a low heuristic value, and nodes further away from the goal have a higher heeuristic value. As shown below, The goal itself has a heuristic of zero. In A* use ***Priority Queue*** for the frontier.
 ![alt text][image34]
 ![alt text][image35]
-
+![alt text][image36]
+![alt text][image37]
 
 ## Probabilistic Path Planning
 While the first two approaches looked at the path planning problem generically - with no understanding of who or what may be executing the actions - probabilistic path planning takes into account the uncertainty of the robot’s motion. It's used in reinforcement learning as well such as reward.
