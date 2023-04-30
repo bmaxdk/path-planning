@@ -36,24 +36,26 @@ public:
     int start[2] = {0, 0};
     int goal[2] = {h-1, w-1};
     int cost = 1;
-    
+    string movement_arrows[4] = {"^", "<", "v", ">"};
+    int movements[4][2] = {{-1, 0}, {0, -1}, {1,0}, {0,1}};
 };
 
-/* TODO: Define a print2DVector function which will print 2D vectors of any data type
-   Example
-   
-   Input: 
-   vector<vector<int> > a{{ 1, 0 },{ 0, 1 }};
-   print2DVector(a);
-   vector<vector<string> > b{{ "a", "b" },{ "c", "d" }};
-   print2DVector(b);
-   
-   Output:
-   1 0
-   0 1
-   a b
-   c d
-   Hint: You need to use templates
+/* 
+    Define a print2DVector function which will print 2D vectors of any data type
+    Example
+
+    Input: 
+    vector<vector<int> > a{{ 1, 0 },{ 0, 1 }};
+    print2DVector(a);
+    vector<vector<string> > b{{ "a", "b" },{ "c", "d" }};
+    print2DVector(b);
+
+    Output:
+    1 0
+    0 1
+    a b
+    c d
+    use templates
 */
 
 /*############ Don't modify the main function############*/
