@@ -25,11 +25,17 @@ s 1 0 0 0 0
 0 0 0 1 1 0
 ```
 ***Direction of Movement***: 
-
 * Up(-1,0) 
 * Left(0,-1) 
 * Down(1,0) 
 * Right(0,1)
+
+***Movement Arrows***: 
+* Up(^) 
+* Left(<) 
+* Down(v) 
+* Right(>)
+The Direction of Movement vector is a collection of four different 2D vectors each of which enables you to move between grid cells in the map.
 
 ***Cost of Movement***: 1
 
