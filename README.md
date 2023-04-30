@@ -271,11 +271,25 @@ It represents the distance from a node to the goal. It is estimation of the dist
 ![alt text][image31]
 ![alt text][image32]
 ![alt text][image33]
-Minimizing g(n) favors shorter paths and minimizing h(n) favors paths in the direction of the goal. A* searches for the shortest path in the direction of the goal. For valid heuristic, h(x) would be the Euclidean distance from a node to the goal. Nodes close to the goal have a low heuristic value, and nodes further away from the goal have a higher heeuristic value. As shown below, The goal itself has a heuristic of zero. In A* use ***Priority Queue*** for the frontier.
+Minimizing g(n) favors shorter paths and minimizing h(n) favors paths in the direction of the goal. A* searches for the shortest path in the direction of the goal. For valid heuristic, h(x) would be the Euclidean distance from a node to the goal. Nodes close to the goal have a low heuristic value, and nodes further away from the goal have a higher heeuristic value. As shown below, The goal itself has a heuristic of zero. In A* use ***Priority Queue*** as the data structure underlying the frontier. Unlike UCS, A* search is directed towards the goal. The nodes on the left hand side of the graaph have not been explored. This instance where nodes' path and f(n) value aree updated based on h(n).
+
 ![alt text][image34]
 ![alt text][image35]
 ![alt text][image36]
 ![alt text][image37]
+A heuristic function provides the robot with knowledge about the environment, guiding it in the direction of the goal. A* uses tthe sum of the path cost and the heuristic function to determine which nodes to explore next. Choosing an appropriate heuristic function(Euclidean distance, Manhattan distance, etc) is importnat. the order in which nodes are explored will change from one heuristic to another. However, A* search algorithm isn’t guaranteed to be optimal.
+
+A* search will find the optimal path if* the following conditions are met:
+* Every edge must have a cost greater than some value, ϵ, otherwise, the search can get stuck in infinite loops and the search would not be complete.
+* The heuristic function must be consistent. This means that it must obey the triangle inequality theorem. That is, for three neighbouring points ( $x_{1}, x_{2}, x_{3}$ ), tthe heuristic value for $x_{1}$ to $x_{3}$ must be less than the sum of the heuristic values for $x_{1}$ to $x_{2}$ and $x_{2}$ to $x_{3}$.
+* The heuristic function must be admissible. This means that h(n) must always be less than or equal to the true cost of reaching the goal from every node. In other words, h(n) must never overestimate the true path cost.
+![alt text][image38]
+
+As shown above, to understand where the admissibility clause comes from. Suppose you have two paths to a goal where one is optimal (the highlighted path), and one is not (the lower path). Both heuristics overestimate the path cost. From the start, you have four nodes on the frontier, but Node N would be expanded first because its h(n) is the lowest - it is equal to 62. From there, the goal node is added to the frontier - with a cost of 23 + 37 = 60. This node looks more promising than Node P, whose h(n) is equal to 63. In such a case, A* finds a path to the goal which is not optimal. If the heuristics never overestimated the true cost, this situation would not occur because Node P would look more promising than Node N and be explored first.
+
+Admissibility is a requirement for A* to be optimal. For this reason, common heuristics include the Euclidean distance from a node to the goal or in some applications the Manhattan distance. When comparing two different types of values - for instance, if the path cost is measured in hours, but the heuristic function is estimating distance - then you would need to determine a scaling parameter to be able to sum the two in a useful manner.
+
+
 
 ## Probabilistic Path Planning
 While the first two approaches looked at the path planning problem generically - with no understanding of who or what may be executing the actions - probabilistic path planning takes into account the uncertainty of the robot’s motion. It's used in reinforcement learning as well such as reward.
