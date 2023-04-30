@@ -228,18 +228,18 @@ Types of Search Algorithm:
 * **Uniformed** : Search blindly which are not provided with any information about the whereabouts of the goal. ***Breadth-First Search***, ***Depth-First Search***, ***Uniform Cost Search***
 * **Informed** : Can guid the search algorithm to make more intelligeent decisions which are provided with information pertaining to the location of the goal. `A* search`
 
-**** Breadth-First Search (BFS)
+#### Breadth-First Search (BFS)
 ![alt text][image20]
 Breadth-First Search is the data structure underlying the frontier is a ***queue***. In a queue, the first element to enteer will be the first to exit. Add child nodes of the first node that will be added to frontier. BFS is still complete and optimal since it will always find goal soluttion. It is optimal because it will always find tthe shorteest solution since it explorees the shortest routes firs. It is optimal because it expands the shallowest unexplored node with every step. However BFS is limited to graphs wheere all step costs are equal. It also might take the algorithm a long time to find the solution. Therefore, algorithm is not efficient.
 ![alt text][image21]
 
-**** Depth-First Search (DFS)
+#### Depth-First Search (DFS)
 ![alt text][image22]
 Depth-First Search expand newly visited nodes first. The data structrue undrlying the frontier will be ***stack***. DFS is exploring deep on the upwards direction. DFS is neither complete, nor optimal, nor efficient.
 ![alt text][image23]
 
 
-**** Uniform Cost Search
+#### Uniform Cost Search
 ![alt text][image24]
 As shown in BFS and DFS are not too efficient. Uniform Cost Search builds upon BfS to be able to search graphs with differing eedge costs. ***Uniform Cost Search*** is optimal because it expands nodes in order of increasing path cost.
 ![alt text][image25]
@@ -289,6 +289,17 @@ As shown above, to understand where the admissibility clause comes from. Suppose
 
 Admissibility is a requirement for A* to be optimal. For this reason, common heuristics include the Euclidean distance from a node to the goal or in some applications the Manhattan distance. When comparing two different types of values - for instance, if the path cost is measured in hours, but the heuristic function is estimating distance - then you would need to determine a scaling parameter to be able to sum the two in a useful manner.
 
+#### Bidirectional Search
+One way to improve a search’s efficiency is to conduct two searches simultaneously - one rooted at the start node, and another at the goal node. Once the two searches meet, a path exists between the start node and the goal node.
+
+The advantage with this approach is that the number of nodes that need to be expanded as part of the search is decreased. As you can see in the image below, the volume swept out by a unidirectional search is noticeably greater than the volume swept out by a bidirectional search for the same problem.
+![alt text][image39]
+
+#### Path Proximity to Obstacles
+Another concern with the search of discretized spaces includes the proximity of the final path to obstacles or other hazards. When discretizing a space with methods such as cell decomposition, empty cells are not differentiated from one another. The optimal path will often lead the robot very close to obstacles. In certain scenarios this can be quite problematic, as it will increase the chance of collisions due to the uncertainty of robot localization. The optimal path may not be the best path. To avoid this, a map can be ‘smoothed’ prior to applying a search to it, marking cells near obstacles with a higher cost than free cells. Then the path found by A* search may pass by obstacles with some additional clearance.
+
+#### Paths Aligned to Grid
+Another concern with discretized spaces is that the resultant path will follow the discrete cells. When a robot goes to execute the path in the real world, it may seem funny to see a robot zig-zag its way across a room instead of driving down the room’s diagonal. In such a scenario, a path that is optimal in the discretized space may be suboptimal in the real world. Some careful path smoothing, with attention paid to the location of obstacles, can fix this problem.
 
 
 ## Probabilistic Path Planning
