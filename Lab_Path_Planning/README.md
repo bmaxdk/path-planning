@@ -1,6 +1,7 @@
 # Path Planning Lab
 The purpose of this lab is to find the shortest path for a robot moving inside a 5x6 map from start to goal position using different path planning algorithms. The robot can only move in four directions: up, left, down, and right. 
 
+## Modeling
 ***Grid(5x6)***
 
 ```text
@@ -40,6 +41,9 @@ The Direction of Movement vector is a collection of four different 2D vectors ea
 ***Cost of Movement***: 1
 
 The Cost of Movement value indicates how much it cost to move from one cell to another.
+
+## BFS: Expansion List
+
 
 # Resource
 [2D Vectors](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/): Learn how to define and use 2D Vectors in C++.
