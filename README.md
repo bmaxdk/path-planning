@@ -232,6 +232,7 @@ Types of Search Algorithm:
 ![alt text][image20]
 Breadth-First Search is the data structure underlying the frontier is a ***queue***. In a queue, the first element to enteer will be the first to exit. Add child nodes of the first node that will be added to frontier. BFS is still complete and optimal since it will always find goal soluttion. It is optimal because it will always find tthe shorteest solution since it explorees the shortest routes firs. It is optimal because it expands the shallowest unexplored node with every step. However BFS is limited to graphs wheere all step costs are equal. It also might take the algorithm a long time to find the solution. Therefore, algorithm is not efficient.
 ![alt text][image21]
+[Lab Path Planning](https://github.com/bmaxdk/path-planning/tree/main/Lab_Path_Planning)
 
 #### Depth-First Search (DFS)
 ![alt text][image22]
@@ -285,6 +286,8 @@ A* search will find the optimal path if* the following conditions are met:
 As shown above, to understand where the admissibility clause comes from. Suppose you have two paths to a goal where one is optimal (the highlighted path), and one is not (the lower path). Both heuristics overestimate the path cost. From the start, you have four nodes on the frontier, but Node N would be expanded first because its h(n) is the lowest - it is equal to 62. From there, the goal node is added to the frontier - with a cost of 23 + 37 = 60. This node looks more promising than Node P, whose h(n) is equal to 63. In such a case, A* finds a path to the goal which is not optimal. If the heuristics never overestimated the true cost, this situation would not occur because Node P would look more promising than Node N and be explored first.
 
 Admissibility is a requirement for A* to be optimal. For this reason, common heuristics include the Euclidean distance from a node to the goal or in some applications the Manhattan distance. When comparing two different types of values - for instance, if the path cost is measured in hours, but the heuristic function is estimating distance - then you would need to determine a scaling parameter to be able to sum the two in a useful manner.
+
+[Lab Path Planning](https://github.com/bmaxdk/path-planning/tree/main/Lab_Path_Planning)
 
 #### Bidirectional Search
 One way to improve a search’s efficiency is to conduct two searches simultaneously - one rooted at the start node, and another at the goal node. Once the two searches meet, a path exists between the start node and the goal node.
