@@ -25,6 +25,16 @@
 [image21]: image/a21.png "img21"
 [image22]: image/a22.png "img22"
 
+[image23]: image/a23.png "img23"
+[image24]: image/a24.png "img24"
+[image25]: image/a25.png "img25"
+[image26]: image/a26.png "img26"
+
+[image27]: image/a27.png "img27"
+[image28]: image/a28.png "img28"
+[image29]: image/a29.png "img29"
+[image30]: image/a30.png "img30"
+
 # path-planning
 Path Planning
 
@@ -208,7 +218,7 @@ Types of Search Algorithm:
 
 **** Breadth-First Search (BFS)
 ![alt text][image20]
-Breadth-First Search is the data structure underlying the frontier is a ***queue***. In a queue, the first element to enteer will be the first to exit. Add child nodes of the first node that will be added to frontier. BFS is still complete and optimal since it will always find goal soluttion. It is optimal because it will always find tthe shorteest solution since it explorees the shortest routes firs. However, it might take the algorithm a long time to find the solution. Therefore, algorithm is not efficient.
+Breadth-First Search is the data structure underlying the frontier is a ***queue***. In a queue, the first element to enteer will be the first to exit. Add child nodes of the first node that will be added to frontier. BFS is still complete and optimal since it will always find goal soluttion. It is optimal because it will always find tthe shorteest solution since it explorees the shortest routes firs. It is optimal because it expands the shallowest unexplored node with every step. However BFS is limited to graphs wheere all step costs are equal. It also might take the algorithm a long time to find the solution. Therefore, algorithm is not efficient.
 ![alt text][image21]
 
 **** Depth-First Search (DFS)
@@ -218,8 +228,18 @@ Depth-First Search expand newly visited nodes first. The data structrue undrlyin
 
 
 **** Uniform Cost Search
-As shown in BFS and DFS are not too efficient
 ![alt text][image24]
+As shown in BFS and DFS are not too efficient. Uniform Cost Search builds upon BfS to be able to search graphs with differing eedge costs. ***Uniform Cost Search*** is optimal because it expands nodes in order of increasing path cost.
+![alt text][image25]
+As shown above higher cost to the edge is consider delay. The ***Uniform Cost Search*** splores the node of the frontier starting with the node that has the lowest path cost. ***Path Cost*** refers to the sum of all edge costs leading from the start to the node.
+![alt text][image26]
+As shown above the first child nodes of path costs are 1<2 which start to explore lowst costs (left node).
+![alt text][image27]
+
+
+![alt text][image28]
+
+
 
 
 
