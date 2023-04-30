@@ -257,12 +257,23 @@ Uniform Cost search explore nodes with lowest path costs first. To accommodate t
 Uniform Cost Search is complete if every step cost is greater than some value, otherwise it can get stuck in infinitee loops. And it is also optimal.
 
 **** A* Search
-`A* Search`
+`A* Search` is an informed search. This means that it takes into account information about the goal's location as it goes aboout its search. It uses a heuristic function.
 
 
 ## Sample-Based Planning
 Sample-based path planning probes the workspace to incrementally construct a graph. Instead of discretizing every segment of the workspace, sample-based planning takes a number of samples and uses them to build a discrete representation of the workspace. The resultant graph is not as precise as one created using discrete planning, but it is much quicker to construct because of the relatively small number of samples used. A path generated using sample-based planning may not be the best path, but in certain applications - it’s better to generate a feasible path quickly than to wait hours or even days to generate the optimal path.
-
+```text
+h(n) = distance to goal 
+g(n) = path cost
+f(n) = g(n) + h(n)
+```
+It represents the distance from a node to the goal. It is estimation of the distance as the only way to know the true distance would be to traverse the graph. 
+![alt text][image31]
+![alt text][image32]
+![alt text][image33]
+Minimizing g(n) favors shorter paths and minimizing h(n) favors paths in the direction of the goal. A* searches for the shortest path in the direction of the goal. For valid heuristic, h(x) would be the Euclidean distance from a node to the goal. Nodes close to the goal have a low heuristic value, and nodes further away from the goal have a higher heeuristic value. As shown below, The goal itself has a heuristic of zero. In A* use ***Priority Queue*** for the frontier.
+![alt text][image34]
+![alt text][image35]
 
 
 ## Probabilistic Path Planning
