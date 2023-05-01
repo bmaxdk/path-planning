@@ -1,3 +1,7 @@
+/*
+Modify the search function to generate and print the expansion 2D vector.
+*/
+
 #include <iostream>
 #include <string.h>
 #include <vector>
@@ -48,72 +52,53 @@ void print2DVector(T Vec)
     }
 }
 
-/* #### TODO: Modify the search function to generate and print the expansion 2D vector #### */
+/* #### Modify the search function to generate and print the expansion 2D vector #### */
 void search(Map map, Planner planner)
 {
-    // Create a closed 2 array filled with 0s and first element 1
-    vector<vector<int> > closed(map.mapHeight, vector<int>(map.mapWidth));
-    closed[planner.start[0]][planner.start[1]] = 1;
-
-    // Defined the triplet values
-    int x = planner.start[0];
-    int y = planner.start[1];
+    // Inital found where start position to close
+    vector<vector<int>> store;
+    int r = planner.start[0];
+    int c = planner.start[1];
     int g = 0;
+    map.grid[r][c] = 0;
+    store.push_back({g,r,c});
 
-    // Store the expansions
-    vector<vector<int> > open;
-    open.push_back({ g, x, y });
-
-    // Flags
-    bool found = false;
-    bool resign = false;
-
-    int x2;
-    int y2;
-
-    // While I am still searching for the goal and the problem is solvable
-    while (!found && !resign) {
-        // Resign if no values in the open list and you can't expand anymore
-        if (open.size() == 0) {
-            resign = true;
-            cout << "Failed to reach a goal" << endl;
+    while(!store.empty())
+    {
+        sort(store.begin(), store.end());
+        reverse(store.begin(), store.end());
+        int curr_g = store.front()[0];
+        int curr_r = store.front()[1];
+        int curr_c = store.front()[2];
+        store.pop_back();
+        if (curr_r == planner.goal[0] && curr_c == planner.goal[1])
+        {
+            cout << "[" << curr_g << ", " << curr_r << ", " << curr_c << "]" << endl;
+            break;
         }
-        // Keep expanding
-        else {
-            // Remove triplets from the open list
-            sort(open.begin(), open.end());
-            reverse(open.begin(), open.end());
-            vector<int> next;
-            // Stored the poped value into next
-            next = open.back();
-            open.pop_back();
-
-            x = next[1];
-            y = next[2];
-            g = next[0];
-            
-            // Check if we reached the goal:
-            if (x == planner.goal[0] && y == planner.goal[1]) {
-                found = true;
-                cout << "[" << g << ", " << x << ", " << y << "]" << endl;
-            }
-
-            //else expand new elements
-            else {
-                for (int i = 0; i < planner.movements.size(); i++) {
-                    x2 = x + planner.movements[i][0];
-                    y2 = y + planner.movements[i][1];
-                    if (x2 >= 0 && x2 < map.grid.size() && y2 >= 0 && y2 < map.grid[0].size()) {
-                        if (closed[x2][y2] == 0 and map.grid[x2][y2] == 0) {
-                            int g2 = g + planner.cost;
-                            open.push_back({ g2, x2, y2 });
-                            closed[x2][y2] = 1;
-                        }
-                    }
+        for(int i=0; i<planner.movements.size(); i++)
+        {
+            int newr =curr_r+planner.movements[i][0];
+            int newc = curr_c+planner.movements[i][1];
+            if(0<=newr && newr<map.grid.size() && 0<=newc && newc<map.grid[0].size())
+            {
+                if (newr == 0 && newc ==0) continue;
+                else if(newr != 1 && newc != 1 && map.grid[newr][newc] == 1)
+                {
+                    map.grid[newr][newc] = -1;
+                    continue;
+                }
+                else if (map.grid[newr][newc] == 0)
+                {
+                    store.push_back({curr_g+1, newr, newc});
+                    map.grid[newr][newc] = curr_g+1;
                 }
             }
+
         }
     }
+    print2DVector(map.grid);
+
 }
 
 int main()
