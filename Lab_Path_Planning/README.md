@@ -137,6 +137,9 @@ Open List: [12 1 5 ], [12 0 4 ], [11 4 5 ]
 Cell Picked: [11 4 5]
 
 ```
+[2_BFS_Expansion_List](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/2_BFS_Expansion_List.cpp)
+
+## BFS Expansion List
 
 
 # Resource
