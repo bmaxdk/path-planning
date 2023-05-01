@@ -100,7 +100,8 @@ int main()
     return 0;
 }
 
-
+// Output
+// [11, 4, 5]
 
 
 
