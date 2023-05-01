@@ -137,9 +137,22 @@ Open List: [12 1 5 ], [12 0 4 ], [11 4 5 ]
 Cell Picked: [11 4 5]
 
 ```
-[2_BFS_Expansion_List](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/2_BFS_Expansion_List.cpp)
+[2_BFS_Expansion_List](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/2_BFS_Expansion_List.cpp) 
 
 ## BFS Expansion List
+Previously, have expanded the cells until it reached the goal. Now, print the order in which each cell was expanded. To do so, it need to modify the `search function` and create a 2D expansion vector that is equal in size to the map. Each cell in the expansion vector will store the order at which it was expanded. Some of the cells were never expanded, and should show a value of -1.
+
+Take a look at the expansion list generated after running the code:
+```text
+0 -1 13 17 -1 -1
+1 -1 10 14 18 -1
+2 -1  8 11 15 19
+3 -1  7  9 12 16
+4  5  6 -1 -1 20
+```
+You can see that we started with the first cell and ended at the goal cell which was expanded after 20 iterations. All the obstacles and some cells were never expanded and thus are showing a value of -1.
+
+
 
 
 # Resource
