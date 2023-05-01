@@ -71,23 +71,31 @@ void search(Map map, Planner planner)
         int curr_g = store.front()[0];
         int curr_r = store.front()[1];
         int curr_c = store.front()[2];
+        int count = 0;
         store.pop_back();
         if (curr_r == planner.goal[0] && curr_c == planner.goal[1])
         {
             cout << "[" << curr_g << ", " << curr_r << ", " << curr_c << "]" << endl;
             break;
         }
+        // int count = 0;
         for(int i=0; i<planner.movements.size(); i++)
         {
+
             int newr =curr_r+planner.movements[i][0];
             int newc = curr_c+planner.movements[i][1];
             if(0<=newr && newr<map.grid.size() && 0<=newc && newc<map.grid[0].size() && map.grid[newr][newc] == 0)
             {
+                
                 if (newr == 0 && newc ==0) continue;
-                store.push_back({curr_g+planner.cost, newr, newc});
-                map.grid[newr][newc] = curr_g+planner.cost;
-                expand[newr][newc] = curr_g+planner.cost;
+                count+=1;
+                store.push_back({curr_g+count, newr, newc});
+                map.grid[newr][newc] = curr_g+count;
+                // count+=1;
+
+                expand[newr][newc] = count+curr_g;
             }
+            // count+=1;
 
         }
     }
