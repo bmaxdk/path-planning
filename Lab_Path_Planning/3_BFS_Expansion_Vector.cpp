@@ -62,7 +62,8 @@ void search(Map map, Planner planner)
     int g = 0;
     map.grid[r][c] = 0;
     store.push_back({g,r,c});
-
+    vector<vector<int>> expand(map.mapHeight, vector<int>(map.mapWidth, -1));
+    expand[0][0] = 0;
     while(!store.empty())
     {
         sort(store.begin(), store.end());
@@ -84,12 +85,13 @@ void search(Map map, Planner planner)
             {
                 if (newr == 0 && newc ==0) continue;
                 store.push_back({curr_g+planner.cost, newr, newc});
-                map.grid[newr][newc] = curr_g+1;
+                map.grid[newr][newc] = curr_g+planner.cost;
+                expand[newr][newc] = curr_g+planner.cost;
             }
 
         }
     }
-    print2DVector(map.grid);
+    print2DVector(expand);
 
 }
 
