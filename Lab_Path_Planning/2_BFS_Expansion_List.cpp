@@ -2,6 +2,7 @@
 #include <string.h>
 #include <vector>
 #include <algorithm>
+// #include <queue>
 
 using namespace std;
 
@@ -48,11 +49,42 @@ void print2DVector(T Vec)
     }
 }
 
-/*#### TODO: Code the search function which will generate the expansion list ####*/
-// You are only required to print the final triplet values
+/*#### Code the search function which will generate the expansion list ####*/
+// Only required to print the final triplet values
 void search(Map map, Planner planner)
 {
-    
+    // Inital found where start position to close
+    vector<vector<int>> store;
+    int r = planner.start[0];
+    int c = planner.start[1];
+    int g = 0;
+    map.grid[r][c] =1;
+    store.push_back({g,r,c});
+
+    while(!store.empty())
+    {
+        sort(store.begin(), store.end());
+        reverse(store.begin(), store.end());
+        int curr_g = store.front()[0];
+        int curr_r = store.front()[1];
+        int curr_c = store.front()[2];
+        store.pop_back();
+        if (curr_r == planner.goal[0] && curr_c == planner.goal[1])
+        {
+            cout << "[" << curr_g << ", " << curr_r << ", " << curr_c << "]" << endl;
+            break;
+        }
+        for(int i=0; i<planner.movements.size(); i++)
+        {
+            int newr =curr_r+planner.movements[i][0];
+            int newc = curr_c+planner.movements[i][1];
+            if(0<=newr && newr<map.grid.size() && 0<=newc && newc<map.grid[0].size() && map.grid[newr][newc] !=1)
+            {
+                store.push_back({curr_g+1, newr, newc});
+                map.grid[newr][newc] = 1;
+            }
+        }
+    }
 }
 
 int main()
