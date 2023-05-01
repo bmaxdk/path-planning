@@ -83,7 +83,7 @@ void search(Map map, Planner planner)
             if(0<=newr && newr<map.grid.size() && 0<=newc && newc<map.grid[0].size() && map.grid[newr][newc] == 0)
             {
                 if (newr == 0 && newc ==0) continue;
-                store.push_back({curr_g+1, newr, newc});
+                store.push_back({curr_g+planner.cost, newr, newc});
                 map.grid[newr][newc] = curr_g+1;
             }
 
