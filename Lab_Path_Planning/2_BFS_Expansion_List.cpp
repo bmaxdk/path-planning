@@ -95,6 +95,7 @@ int main()
 
     // Search for the expansions
     search(map, planner);
+    // print2DVector(map.grid);
 
     return 0;
 }
