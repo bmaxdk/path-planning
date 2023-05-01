@@ -80,19 +80,11 @@ void search(Map map, Planner planner)
         {
             int newr =curr_r+planner.movements[i][0];
             int newc = curr_c+planner.movements[i][1];
-            if(0<=newr && newr<map.grid.size() && 0<=newc && newc<map.grid[0].size())
+            if(0<=newr && newr<map.grid.size() && 0<=newc && newc<map.grid[0].size() && map.grid[newr][newc] == 0)
             {
                 if (newr == 0 && newc ==0) continue;
-                else if(newr != 1 && newc != 1 && map.grid[newr][newc] == 1)
-                {
-                    map.grid[newr][newc] = -1;
-                    continue;
-                }
-                else if (map.grid[newr][newc] == 0)
-                {
-                    store.push_back({curr_g+1, newr, newc});
-                    map.grid[newr][newc] = curr_g+1;
-                }
+                store.push_back({curr_g+1, newr, newc});
+                map.grid[newr][newc] = curr_g+1;
             }
 
         }
