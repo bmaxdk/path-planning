@@ -117,9 +117,7 @@ void search(Map map, Planner planner)
         path[cur_r][cur_c] = assign;
         cur_r +=  planner.movements[pos][0];
         cur_c +=  planner.movements[pos][1];
- 
-        cout<<planner.goal[0]<<planner.goal[1]<<endl;
-    }
+     }
     path[planner.goal[0]][planner.goal[1]] = "*";
     print2DVector(path);
 
