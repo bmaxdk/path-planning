@@ -105,7 +105,7 @@ void search(Map map, Planner planner)
             // Check if we reached the goal:
             if (x == planner.goal[0] && y == planner.goal[1]) {
                 found = true;
-                //cout << "[" << g << ", " << x << ", " << y << "]" << endl;
+                cout << "[" << g << ", " << x << ", " << y << "]" << endl;
             }
 
             //else expand new elements
