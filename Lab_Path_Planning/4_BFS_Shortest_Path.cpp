@@ -58,8 +58,6 @@ void search(Map map, Planner planner)
     // Create expand array filled with -1
     vector<vector<int> > expand(map.mapHeight, vector<int>(map.mapWidth, -1));
 
-    vector<vector<int> > policy(map.mapHeight, vector<int>(map.mapWidth, '-'));
-
     // Defined the triplet values
     int x = planner.start[0];
     int y = planner.start[1];
@@ -105,7 +103,7 @@ void search(Map map, Planner planner)
             // Check if we reached the goal:
             if (x == planner.goal[0] && y == planner.goal[1]) {
                 found = true;
-                cout << "[" << g << ", " << x << ", " << y << "]" << endl;
+                //cout << "[" << g << ", " << x << ", " << y << "]" << endl;
             }
 
             //else expand new elements
