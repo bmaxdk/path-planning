@@ -90,6 +90,39 @@ void search(Map map, Planner planner)
     }
 
     print2DVector(expand);
+    vector<vector<string>> path(map.mapHeight, vector<string>(map.mapWidth, "-"));
+    int cur_r, cur_c, cur_g;
+    cur_r = planner.start[0];
+    cur_c = planner.start[1];
+    cur_g = expand[cur_r][cur_c];
+    while(cur_r != planner.goal[0] or cur_c != planner.goal[1])
+    {
+        int pos = -1;
+        string assign;
+        for(int i=0; i<planner.movements.size(); i++)
+        {
+            int new_r = cur_r + planner.movements[i][0];
+            int new_c = cur_c + planner.movements[i][1];
+            if (0<= new_r and new_r<expand.size() and 0<=new_c and new_c<expand[0].size())
+            {
+                int new_g = expand[new_r][new_c];
+                if (cur_g < new_g)
+                {
+                    cur_g = new_g;
+                    pos = i;
+                }
+            }
+        }
+        assign = planner.movements_arrows[pos];
+        path[cur_r][cur_c] = assign;
+        cur_r +=  planner.movements[pos][0];
+        cur_c +=  planner.movements[pos][1];
+ 
+        cout<<planner.goal[0]<<planner.goal[1]<<endl;
+    }
+    path[planner.goal[0]][planner.goal[1]] = "*";
+    print2DVector(path);
+
 }
 
 int main()
