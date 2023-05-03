@@ -166,6 +166,8 @@ v - > > > v
 ```
 [Shortest Path](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/4_BFS_Shortest_Path3.cpp)
 
+## A*: Shortest Path
+Implement the A* algorithm and find the shortest path. A* is based on a heuristic function. Thus, we will implement a Manhattan-based heuristic vector and compute the Manhattan distance of each cell with respect to the goal position where:
 
 # Resource
 [2D Vectors](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/): Learn how to define and use 2D Vectors in C++.
