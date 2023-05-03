@@ -152,7 +152,19 @@ Take a look at the expansion list generated after running the code:
 ```
 You can see that we started with the first cell and ended at the goal cell which was expanded after 20 iterations. All the obstacles and some cells were never expanded and thus are showing a value of -1.
 
+[BFS Expansion List](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/3_BFS_Expansion_Vector2.cpp)
 
+## BFS: Shortest Path
+The final step is to print the shortest path that the robot has to take in order to travel from start to goal. You will need to record each action that the robot should take(ex: turning left <) and store all the actions in a policy 2D vector.
+
+```text
+v - - - - - 
+v - - - - - 
+v - - - - - 
+v - > > > v 
+> > ^ - - * 
+```
+[Shortest Path](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/4_BFS_Shortest_Path3.cpp)
 
 
 # Resource
