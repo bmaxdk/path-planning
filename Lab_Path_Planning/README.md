@@ -184,6 +184,7 @@ By computing the Manhattan distance of each cell, we'll obtain this heuristic ve
 5 4 3 2 1 0
 ```
 Other heuristic-based vectors such as the **Euclidean distance (L2 norm)**  or the **Chebyshev distance (Norm p or L-infinity norm)** where:
+
 Euclidean distance d = $sqrt(x_{d}^2 + y_{d}^2)$
 
 **Euclidean Heuristic Vector**
@@ -204,6 +205,63 @@ Chebyshev distance d = max( $$∣x_{d}∣, ∣y_{d}∣$$ )
 5 4 3 2 1 1
 5 4 3 2 1 0
 ```
+
+### Expansion
+Now instead of expanding cells with lowest path cost **g**, you’ll expand cells with lowest **f** value which is the sum of the path cost **g** and the heuristic value **h** of that cell.
+Each cell is now represented with a quadruplet **[f,g,x,y]** instead of a triplet **[g,x,y]**.
+
+
+```txt
+Expansion #: 0
+Open List: [9 0 0 0 ]
+Cell Picked: [9 0 0 0]
+
+Expansion #: 1
+Open List: [9 1 1 0 ]
+Cell Picked: [9 1 1 0]
+
+Expansion #: 2
+Open List: [9 2 2 0 ]
+Cell Picked: [9 2 2 0]
+
+Expansion #: 3
+Open List: [9 3 3 0 ]
+Cell Picked: [9 3 3 0]
+
+Expansion #: 4
+Open List: [9 4 4 0 ]
+Cell Picked: [9 4 4 0]
+
+Expansion #: 5
+Open List: [9 5 4 1 ]
+Cell Picked: [9 5 4 1]
+
+Expansion #: 6
+Open List: [9 6 4 2 ]
+Cell Picked: [9 6 4 2]
+
+Expansion #: 7
+Open List: [11 7 3 2 ]
+Cell Picked: [11 7 3 2]
+
+Expansion #: 8
+Open List: [13 8 2 2 ], [11 8 3 3 ]
+Cell Picked: [11 8 3 3]
+
+Expansion #: 9
+Open List: [13 9 2 3 ], [13 8 2 2 ], [11 9 3 4 ]
+Cell Picked: [11 9 3 4]
+
+Expansion #: 10
+Open List: [13 10 2 4 ], [13 9 2 3 ], [13 8 2 2 ], [11 10 3 5 ]
+Cell Picked: [11 10 3 5]
+
+Expansion #: 11
+Open List: [13 11 2 5 ], [13 10 2 4 ], [13 9 2 3 ], [13 8 2 2 ], [11 11 4 5 ]
+Cell Picked: [11 11 4 5]
+```
+
+
 # Resource
 [2D Vectors](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/): Learn how to define and use 2D Vectors in C++.
 
