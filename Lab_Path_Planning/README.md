@@ -211,7 +211,14 @@ Chebyshev distance d = max( $∣x_{d}∣, ∣y_{d}∣$ )
 Now instead of expanding cells with lowest path cost **g**, you’ll expand cells with lowest **f** value which is the sum of the path cost **g** and the heuristic value **h** of that cell.
 Each cell is now represented with a quadruplet **[f,g,x,y]** instead of a triplet **[g,x,y]**.
 
-
+```txt
+Map	0	1	2	3	4	5
+0	0	1	0	0	0	0
+1	0	1	0	0	0	0
+2	0	1	0	0	0	0
+3	0	1	0	0	0	0
+4	0	0	0	1	1	0
+```
 ```txt
 Expansion #: 0
 Open List: [9 0 0 0 ]
@@ -261,6 +268,7 @@ Expansion #: 11
 Open List: [13 11 2 5 ], [13 10 2 4 ], [13 9 2 3 ], [13 8 2 2 ], [11 11 4 5 ]
 Cell Picked: [11 11 4 5]
 ```
+
 
 
 # Resource
