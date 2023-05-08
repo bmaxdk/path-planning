@@ -269,7 +269,35 @@ Open List: [13 11 2 5 ], [13 10 2 4 ], [13 9 2 3 ], [13 8 2 2 ], [11 11 4 5 ]
 Cell Picked: [11 11 4 5]
 ```
 
+### Comparison
+**BFS**
+```txt
+0 -1 13 17 -1 -1
+1 -1 10 14 18 -1
+2 -1  8 11 15 19
+3 -1  7  9 12 16
+4  5  6 -1 -1 20
+```
 
+**A star**
+```txt
+0 -1 -1 -1 -1 -1 
+1 -1 -1 -1 -1 -1 
+2 -1 -1 -1 -1 -1 
+3 -1  7  8  9 10 
+4  5  6 -1 -1 11 
+```
+
+**Path**
+```txt
+v - - - - - 
+v - - - - - 
+v - - - - - 
+v - > > > v 
+> > ^ - - * 
+```
+
+It clearly show that A* is more efficient since it did not expand in the free space as BFS did. With A* we reached the goal with only 11 expansions compared to 20 with BFS.
 
 # Resource
 [2D Vectors](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/): Learn how to define and use 2D Vectors in C++.
