@@ -196,7 +196,8 @@ Euclidean distance d = $sqrt(x_{d}^2 + y_{d}^2)$
 5 4 3 2 1 0
 ```
 
-Chebyshev distance d = max( $$∣x_{d}∣, ∣y_{d}∣$$ )
+Chebyshev distance d = max( $∣x_{d}∣, ∣y_{d}∣$ )
+
 **Chebyshev Heuristic Vector**
 ```txt
 5 4 4 4 4 4
