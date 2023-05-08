@@ -173,8 +173,18 @@ $x_{d} = x_{goal} - x_{cell position}$
 
 $y_{d} = y_{goal} - y_{cell position}$
 
-Manhattan distance (L1 norm) d = $∣x_{d}∣+∣y_{d}∣$
+**Manhattan distance (L1 norm)** d = $∣x_{d}∣+∣y_{d}∣$
 
+By computing the Manhattan distance of each cell, we'll obtain this heuristic vector, **Manhattan Heuristic Vector**:
+```txt
+9 8 7 6 5 4
+8 7 6 5 4 3
+7 6 5 4 3 2
+6 5 4 3 2 1
+5 4 3 2 1 0
+```
+Other heuristic-based vectors such as the **Euclidean distance (L2 norm)**  or the **Chebyshev distance (Norm p or L-infinity norm)** where:
+Euclidean distance d = $sqrt(x_{d}^2 + y_{d}^2)$
 
 # Resource
 [2D Vectors](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/): Learn how to define and use 2D Vectors in C++.
