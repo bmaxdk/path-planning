@@ -169,6 +169,13 @@ v - > > > v
 ## A*: Shortest Path
 Implement the A* algorithm and find the shortest path. A* is based on a heuristic function. Thus, we will implement a Manhattan-based heuristic vector and compute the Manhattan distance of each cell with respect to the goal position where:
 
+$x_{d} = x_{goal} - x_{cell position}$
+
+$y_{d} = y_{goal} - y_{cell position}$
+
+Manhattan distance (L1 norm) d = $∣x_{d}∣+∣y_{d}∣$
+
+
 # Resource
 [2D Vectors](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/): Learn how to define and use 2D Vectors in C++.
 
