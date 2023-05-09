@@ -382,6 +382,12 @@ After the learning phase, comes the query phase.
 
 
 
+
+
+
+
+
+
 ## Probabilistic Path Planning
 While the first two approaches looked at the path planning problem generically - with no understanding of who or what may be executing the actions - probabilistic path planning takes into account the uncertainty of the robot’s motion. It's used in reinforcement learning as well such as reward.
 
