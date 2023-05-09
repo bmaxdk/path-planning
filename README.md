@@ -47,6 +47,11 @@
 [image39]: img/a39.png "img39"
 [image40]: img/a40.png "img40"
 
+[image41]: img/a41.png "img41"
+[image42]: img/a42.png "img42"
+[image43]: img/a43.png "img43"
+[image44]: img/a44.png "img44"
+
 # path-planning
 Path Planning
 
@@ -304,6 +309,17 @@ Another concern with discretized spaces is that the resultant path will follow t
 
 ## Sample-Based Planning
 Sample-based path planning probes the workspace to incrementally construct a graph. Instead of discretizing every segment of the workspace, sample-based planning takes a number of samples and uses them to build a discrete representation of the workspace. The resultant graph is not as precise as one created using discrete planning, but it is much quicker to construct because of the relatively small number of samples used. A path generated using sample-based planning may not be the best path, but in certain applications - it’s better to generate a feasible path quickly than to wait hours or even days to generate the optimal path.
+
+### Why Sample-Based Planning?
+Discrete planning for higher dimensional problems are incredibly hard to discretize such a large space. The complexity of the path planning problem increases exponentially with the number of dimensions in the C-space.
+
+### Increased Dimensionality
+For a 2-dimensional 8-connected space, every node has 8 successors (8-connected means that from every cell you can move laterally or diagonally). Imagine a 3-dimensional 8-connected space, how many successors would every node have? 26. As the dimension of the C-space grows, the number of successors that every cell has increases substantially. In fact, for an n-dimensional space, it is equal to $3^n -1$. The robotic arm that you worked with in the pick-and-place project - that was a 6-DOF arm. If multiple 6-DOF arms work in a common space, the computation required to perform path planning to avoid collisions increases substantially. Then, think about the complexity of planning for humanoid robots such as the one depicted below. Such problems may take intolerably long to solve using the combinatorial approach.
+
+### Constrained Dynamics
+Aside from robots with many degrees of freedom and multi-robot systems, another computational difficulty involves working with robots that have constrained dynamics. For instance, a car is limited in its motion - it can move forward and backward, and it can turn with a limited turning radius as below.
+![alt text][image40]
+
 
 
 ## Probabilistic Path Planning
