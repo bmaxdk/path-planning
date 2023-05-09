@@ -9,8 +9,9 @@ using namespace std;
 // Map class
 class Map {
 public:
-    const static int mapHeight = /* #### TODO: mapHeight #### */
-    const static int mapWidth = /* #### TODO: mapWidth #### */
+    // map.txt (300x150)
+    const static int mapHeight = 300;
+    const static int mapWidth = 150;
     vector<vector<double> > map = GetMap();
     vector<vector<int> > grid = MaptoGrid();
     vector<vector<int> > heuristic = GenerateHeuristic();
@@ -33,10 +34,10 @@ private:
         return mymap;
     }
 
-    /* #### TODO: Code the MaptoGrid function and convert the map to 1's and 0's #### */
+    /* *Code the MaptoGrid function and convert the map to 1's and 0's #### */
     vector<vector<int> > MaptoGrid()
     {
-        vector<vector<int> > grid(mapHeight, vector<int>(mapWidth));
+        // vector<vector<int> > grid(mapHeight, vector<int>(mapWidth));
         /* Here's how you interpret the data stored inside map
            0:unkown 
           <0:free 
@@ -46,15 +47,36 @@ private:
            0: Free Space
            1: Occupied + Unkown Space
         */
+        vector<vector<int>> grid(mapHeight, vector<int>(mapWidth, 1));
+        for(int r=0; r<mapHeight; r++)
+        {
+            for(int c=0; c<mapWidth; c++)
+            {
+                if (map[r][c] <0)
+                    grid[r][c] = 0;
+            }
+        }
         return grid;
     }
 
-    /* #### TODO: Generate a Manhttan Heuristic Vector #### */
+    /* *Generate a Manhttan Heuristic Vector #### */
     vector<vector<int> > GenerateHeuristic()
     {
         int goal[2] = { 60, 50 };
         vector<vector<int> > heuristic(mapHeight, vector<int>(mapWidth));
         // Generate a Manhattan heursitic vector
+        for(int r=0; r<mapHeight; r++)
+        {
+            for(int c=0; c<mapWidth; c++)
+            {
+                int curr = goal[0]-r;
+                int curc = goal[1]-c;
+                int d = abs(curr)+abs(curc); //L1
+                // int d = sqrt(pow(curr,2)+pow(curc,2)); //L2
+                // int d = max(abs(curr), abs(curc)); //LP
+                heuristic[r][c] = d;
+            }
+        }
         return heuristic;
     }
 };
@@ -62,8 +84,10 @@ private:
 // Planner class
 class Planner : Map {
 public:
-    int start[2] = /* #### TODO: start #### */
-    int goal[2] = /* #### TODO: goal #### */
+    // Robot Start position: 230,145
+    // Robot Goal Position: 60,50
+    int start[2] ={230, 145};
+    int goal[2] = {60, 50};
     int cost = 1;
 
     string movements_arrows[4] = { "^", "<", "v", ">" };
@@ -172,7 +196,7 @@ Planner search(Map map, Planner planner)
     }
 
     // Print the expansion List
-    //print2DVector(expand);
+    // print2DVector(expand);
 
     // Find the path with robot orientation
     vector<vector<string> > policy(map.mapHeight, vector<string>(map.mapWidth, "-"));
@@ -194,7 +218,7 @@ Planner search(Map map, Planner planner)
 
     // Print the robot path
     //cout << endl;
-    //print2DVector(policy);
+    print2DVector(policy);
 
     return planner;
 }
