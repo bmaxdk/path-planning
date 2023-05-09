@@ -337,10 +337,69 @@ Given:
 
 If you scroll down to the code, you will notice that I added three new functions to the Map class. I coded a GetMap function which reads the map.txt log odds values and assign them the map variable. You will code the MapToGrid function in order to convert the log odds values to 0’s and 1’s. These 0 and 1 values will be assigned to the grid variable. And finally, the GeneratedHeuristic function is another function that you have to code in order to generate a Manhattan-based heuristic vector by computing the Manhattan distance of each cell with respect to the goal position.
 
+
+
 [A* Real World Map](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/Astar_2_Real_World_Map.cpp)
+
+### [Addition] Plot
+[matplotlib](https://github.com/lava/matplotlib-cpp)
+Plot edit main.cpp
+Modify the visualization function and plot the start position, goal position, and path using the matplotlib python library. Note that you are required to use letter 'o' (not number character '0') and the asterisk '*' to mark the start and end states in visualization! 
+``` C++ 
+void visualization(Map map, Planner planner) { 
+//Graph Format plt::title("Path"); plt::xlim(0, map.mapHeight); plt::ylim(0, map.mapWidth);
+```
+
+``` C++
+    // Draw every grid of the map:
+    for (double x = 0; x < map.mapHeight; x++) {
+        cout << "Remaining Rows= " << map.mapHeight - x << endl;
+        for (double y = 0; y < map.mapWidth; y++) {
+            if (map.map[x][y] == 0) { //Green unkown state
+                plt::plot({ x }, { y }, "g.");
+            }
+            else if (map.map[x][y] > 0) { //Black occupied state
+                plt::plot({ x }, { y }, "k.");
+            }
+            else { //Red free state
+                plt::plot({ x }, { y }, "r.");
+            }
+        }
+    }
+
+    // Plot start and end states in blue colors using o and * respectively
+    
+    // Plot the robot path in blue color using a .
+    
+    //Save the image and close the plot
+    plt::save("./Images/Path.png");
+    plt::clf();
+}
+```
+```bash
+$ g++ main.cpp -o app -std=c++11 -I/usr/include/python2.7 -lpython2.7
+$ ./app
+```
+Here are some helpful commands you can use to generate plots with the matplotlib library:
+
+* Set Title: plt::title("Your Title");
+* Set Limits: plt::xlim(x-axis lower limit, x-axis upper limit );
+* Plot Data:plt::plot({ x-value }, { y-value }, "Color and Shape");
+* Save Plot: plt::save("File name and directory");
+* Close Plot: plt::clf();
+
+[image1]: path.png "img1"
+![alt text][image1]
+
+
+* Green: Unkown/Undiscovered zone
+* Red: Free zone
+* Black: Occupied zone
+* Blue: Shortest Path
 
 
 # Resource
 [2D Vectors](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/): Learn how to define and use 2D Vectors in C++.
 
 [Documentation](https://cplusplus.com/reference/vector/vector/): Learn the vectors iterators and modifiers.
+
