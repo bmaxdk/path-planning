@@ -319,7 +319,16 @@ For a 2-dimensional 8-connected space, every node has 8 successors (8-connected 
 ### Constrained Dynamics
 Aside from robots with many degrees of freedom and multi-robot systems, another computational difficulty involves working with robots that have constrained dynamics. For instance, a car is limited in its motion - it can move forward and backward, and it can turn with a limited turning radius as below.
 ![alt text][image40]
+However, the car is not able to move laterally as depicted in the following image, struggle to parallel park.
+![alt text][image41]
+In the case of the car, more complex motion dynamics must be considered when path planning - including the derivatives of the state variables such as velocity. For example, a car's safe turning radius is dependent on it's velocity.
 
+Robotic systems can be classified into two different categories:
+* Holonomic systems can be defined as systems where every constraint depends exclusively on the current pose and time, and not on any derivatives with respect to time.
+
+* Nonholonomic systems, on the other hand, are dependent on derivatives. Path planning for nonholonomic systems is more difficult due to the added constraints.
+
+### Weakening Requirements
 
 
 ## Probabilistic Path Planning
