@@ -297,7 +297,48 @@ v - > > > v
 > > ^ - - * 
 ```
 
+[A* shortest path](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/Astar_Shortest_Path.cpp)
+
 It clearly show that A* is more efficient since it did not expand in the free space as BFS did. With A* we reached the goal with only 11 expansions compared to 20 with BFS.
+
+### A*: Real-World Map
+
+If you recall, this map is the one you generated with the occupancy grid mapping algorithm using both sonar and odometry data. Our aim is now to find the shortest path for the robot to cross from start o to goal ***** position.
+
+Given:
+
+**Map(300x150)**: The map data stored in the `map.txt` file in form of log odds values. As a reminder, here's how you should interpret these numbers:
+
+* A cell is considered **unknown** if its log odds value is **equal to 0**.
+* A cell is considered as **occupied** if its log odds is **larger than 0**.
+* A cell is considered as **free** if its log odds value is **less than 0**.
+
+**Grid(300x150)**: The log odds values converted to 0’s and 1’s where **0** represents the **free space** and **1** represents the **occupied** or **unknown space**.
+
+**Robot Start position**: 230, 145
+
+**Robot Goal Position**: 60, 50
+
+**Direction of Movement**: 
+* Up(-1,0) 
+* left(0,-1) 
+* down(1,0) 
+* right(0,1)
+
+**Movement Arrows**: 
+* Up(^) 
+* left(<) 
+* down(v) 
+* right(>)
+
+**Cost of Movement**: 1
+
+**Heuristic Vector**: Manhattan
+
+If you scroll down to the code, you will notice that I added three new functions to the Map class. I coded a GetMap function which reads the map.txt log odds values and assign them the map variable. You will code the MapToGrid function in order to convert the log odds values to 0’s and 1’s. These 0 and 1 values will be assigned to the grid variable. And finally, the GeneratedHeuristic function is another function that you have to code in order to generate a Manhattan-based heuristic vector by computing the Manhattan distance of each cell with respect to the goal position.
+
+[A* Real World Map](https://github.com/bmaxdk/path-planning/blob/main/Lab_Path_Planning/Astar_2_Real_World_Map.cpp)
+
 
 # Resource
 [2D Vectors](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/): Learn how to define and use 2D Vectors in C++.
