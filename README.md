@@ -345,8 +345,32 @@ Such a method is probabilistically complete because as time passes and the numbe
 Such an approach is very effective in high-dimensional spaces, however it does have some downfalls. Sampling a space uniformly is not likely to reach small or narrow areas, such as the passage depicted in the image below. Since the passage is the only way to move from start to goal, it is critical that a sufficient number of samples occupy the passage, or the algorithm will return ‘no solution found’ to a problem that clearly has a solution.
 ![alt text][image42]
 
+Different sample-based planning approaches exist, each with their own benefits and downfalls.
 
+* **Probabilistic Roadmap Method**
+* **Rapidly Exploring Random Tree Method**
 
+### Probabilistic Roadmap (PRM)
+
+Algorithm: Pseudocode for the PRM learning phase:
+```text
+Initialize an empty graph
+For n iterations:
+
+   Generate a random configuration.
+   If the configuration is collision free: 
+
+      Add the configuration to the graph.
+      Find the k-nearest neighbours of the configuration.
+      For each of the k neighbours:
+
+         Try to find a collision-free path between 
+            the neighbour and original configuration. 
+            If edge is collision-free: 
+                Add it to the graph. 
+
+```
+After the learning phase, comes the query phase.
 
 
 
