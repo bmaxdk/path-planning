@@ -543,9 +543,12 @@ After the Path Shortcutting algorithm is applied, the result is a more optimized
 For large multi-dimensional problems, it is not uncommon for the time taken to optimize a path to exceed the time taken to search for a feasible solution in the first place.
 
 
-
 ## Probabilistic Path Planning
 While the first two approaches looked at the path planning problem generically - with no understanding of who or what may be executing the actions - probabilistic path planning takes into account the uncertainty of the robot’s motion. It's used in reinforcement learning as well such as reward.
+
+Probabilistic path planning using Markov decision processes.
+
+
 
 
 # Review
