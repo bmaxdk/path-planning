@@ -476,9 +476,6 @@ This method is slightly biasing. Therefore, one variation of the RRT method is o
 ![alt text][image63]
 
 
-
-
-
 Algorithm pseudocode for the RRT learning phase:
 ```txt
 Initialize two empty trees.
