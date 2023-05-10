@@ -88,7 +88,7 @@ Three different approaches:
 * `Sample-based path planning`
 * `Probabilistic path planning`
 
-## Discrete Planning
+# Discrete Planning
 ![alt text][image18]
 
 Discretize the robot’s workspace into a connected graph, and apply a graph-search algorithm to calculate the best path. It is very computationall very expensive. Therefore, it is best suited for low-dimensional problems. For high-dimensional problems, sample-based path planning is a more appropriate approach.
@@ -333,7 +333,7 @@ Another concern with the search of discretized spaces includes the proximity of 
 Another concern with discretized spaces is that the resultant path will follow the discrete cells. When a robot goes to execute the path in the real world, it may seem funny to see a robot zig-zag its way across a room instead of driving down the room’s diagonal. In such a scenario, a path that is optimal in the discretized space may be suboptimal in the real world. Some careful path smoothing, with attention paid to the location of obstacles, can fix this problem.
 
 
-## Sample-Based Planning
+# Sample-Based Planning
 Sample-based path planning probes the workspace to incrementally construct a graph. Instead of discretizing every segment of the workspace, sample-based planning takes a number of samples and uses them to build a discrete representation of the workspace. The resultant graph is not as precise as one created using discrete planning, but it is much quicker to construct because of the relatively small number of samples used. A path generated using sample-based planning may not be the best path, but in certain applications - it’s better to generate a feasible path quickly than to wait hours or even days to generate the optimal path.
 
 ### Why Sample-Based Planning?
@@ -543,11 +543,12 @@ After the Path Shortcutting algorithm is applied, the result is a more optimized
 For large multi-dimensional problems, it is not uncommon for the time taken to optimize a path to exceed the time taken to search for a feasible solution in the first place.
 
 
-## Probabilistic Path Planning
+# Probabilistic Path Planning
 While the first two approaches looked at the path planning problem generically - with no understanding of who or what may be executing the actions - probabilistic path planning takes into account the uncertainty of the robot’s motion. It's used in reinforcement learning as well such as reward.
 
 Probabilistic path planning using Markov decision processes.
 
+### Markov Decision Process
 
 
 
