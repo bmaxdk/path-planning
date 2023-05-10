@@ -564,5 +564,9 @@ While the first two approaches looked at the path planning problem generically -
     * [MovingAI A* Variance](https://movingai.com/astar-var.html)
     * [Variants of A* - Stanford](http://theory.stanford.edu/~amitp/GameProgramming/Variations.html)
     
-    
+
+* Anytime algorithm: an anytime algorithm is an algorithm that will return a solution even if it's computation is halted before it finishes searching the entire space. The longer the algorithm plans, the more optimal the solution will be.
+
+* RRT*: RRT* is a variant of RRT that tries to smooth the tree branches at every step. It does so by looking to see whether a child node can be swapped with it's parent (or it's parent's parent, etc) to produce a more direct path. The result is a less zig-zaggy and more optimal path.
+
 [Path Planning for Non-Circular Micro Aerial Vehicles in Constrained Environments,](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.cs.cmu.edu/~maxim/files/pathplanforMAV_icra13.pdf)
