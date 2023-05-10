@@ -358,7 +358,7 @@ Different sample-based planning approaches exist, each with their own benefits a
 * **Probabilistic Roadmap Method**
 * **Rapidly Exploring Random Tree Method**
 
-### Probabilistic Roadmap (PRM)
+## Probabilistic Roadmap (PRM)
 One common `sample-based path planning` method is called `probablistic roadmap(PRM)`. PRM randomly samples the workspace, building up a graph to represent the free space. All the PRM require is a collision check function to test whether a randomly generated node lies in the freespace or is in collision with an obstacle.
 
 The process of building up a graph is called the `learning phase`.
@@ -407,9 +407,51 @@ For n iterations:
 After the learning phase, comes the query phase.
 
 ### Setting Parameters
-There are several parameters in the PRM algorithm that require tweaking to achieve success in a particular application. Firstly, the number of iterations can be adjusted - the parameter controls between how detailed the resultant graph is and how long the computation takes. For path planning problems in wide-open spaces, additional detail is unlikely to significantly improve the resultant path. However, the additional computation is required in complicated environments with narrow passages between obstacles. Beware, setting an insufficient number of iterations can result in a ‘path not found’ if the samples do not adequately represent the space.
+There are several parameters in the PRM algorithm that require tweaking to achieve success in a particular application. 
+
+* the number of iterations can be adjusted: the parameter controls between how detailed the resultant graph is and how long the computation takes. For path planning problems in wide-open spaces, additional detail is unlikely to significantly improve the resultant path. However, the additional computation is required in complicated environments with narrow passages between obstacles. Beware, setting an insufficient number of iterations can result in a ‘path not found’ if the samples do not adequately represent the space.
+
+* Another decision that a robotics engineer would need to make is ***how to find neighbors*** for a randomly generated configuration. One option is to look for the k-nearest neighbors to a node. To do so efficiently, a [k-d](https://xlinux.nist.gov/dads/HTML/kdtree.html) tree can be utilized - to break up the space into ‘bins’ with nodes, and then search the bins for the nearest nodes. Another option is to search for any nodes within a certain distance of the goal. Ultimately, knowledge of the environment and the solution requirements will drive this decision-making process.
+
+* The choice for what type of ***local planner*** to use is another decision that needs to be made by the robotics engineer. The local planner demonstrated in the above is an example of a very simple planner. For most scenarios, a simple planner is preferred, as the process of checking an edge for collisions is repeated many times (k*n times, to be exact) and efficiency is key. However, more powerful planners may be required in certain problems. In such a case, the local planner could even be another PRM.
+
+### Probabilistically Complete
+Sample-based path planning algorithms are probabilistically complete. As the number of iterations approaches infinity, the graph approaches completeness and the optimal path through the graph approaches the optimal path in reality.
+
+### Variants
+Current algorith as shown above is vanilla version of PRM, but many other variations to it exist. [A Comparative Study of Probabilistic Roadmap Planners](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://webspace.science.uu.nl/~gerae101/pdf/compare.pdf)
+
+### PRM is a Multi-Query Planner
+The Learning Phase takes significantly longer to implement than the Query Phase, which only has to connect the start and goal nodes, and then search for a path. However, the graph created by the Learning Phase can be reused for many subsequent queries. For this reason, PRM is called a ***multi-query planner***.
+
+This is very beneficial in static or mildly-changing environments. However, some environments change so quickly that PRM’s multi-query property cannot be exploited. In such situations, PRM’s additional detail and computational slow nature is not appreciated. A quicker algorithm would be preferred - one that doesn’t spend time going in all directions without influence by the start and goal.
 
 
+## Rapidly Exploring Random Tree Method (RRT)
+Another commonly utilized sample-based path planning method is the ***randomly exploring random tree method (RRT)***. RRT differs from PRM in thatt it is single query planner. PRM spent its learning phase building up a representation of the entiree workspace.
+
+
+Algorithm pseudocode for the RRT learning phase:
+```txt
+Initialize two empty trees.
+Add start node to tree #1.
+Add goal node to tree #2.
+For n iterations, or until an edge connects trees #1 & #2:
+
+    Generate a random configuration (alternating trees).
+    If the configuration is collision free: 
+        Find the closest neighbour on the tree to the configuration 
+        If the configuration is less than a distance $$\delta$$ away from the neighbour:
+            Try to connect the two with a local planner.
+    Else:
+        Replace the randomly generated configuration 
+            with a new configuration that falls along the same path, 
+            but a distance $$\delta$$ from the neighbour.
+        Try to connect the two with a local planner. 
+
+    If node is added successfully: 
+        Try to connect the new node to the closest neighbour.
+```
 
 
 
