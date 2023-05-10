@@ -477,7 +477,7 @@ This method is slightly biasing. Therefore, one variation of the RRT method is o
 
 
 Algorithm pseudocode for the RRT learning phase:
-```txt
+```md
 Initialize two empty trees.
 Add start node to tree #1.
 Add goal node to tree #2.
