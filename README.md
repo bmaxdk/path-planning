@@ -590,4 +590,4 @@ A Markov Decision Process is defined by:
 
 * RRT*: RRT* is a variant of RRT that tries to smooth the tree branches at every step. It does so by looking to see whether a child node can be swapped with it's parent (or it's parent's parent, etc) to produce a more direct path. The result is a less zig-zaggy and more optimal path.
 
-[Path Planning for Non-Circular Micro Aerial Vehicles in Constrained Environments,](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.cs.cmu.edu/~maxim/files/pathplanforMAV_icra13.pdf)
+[Path Planning for Non-Circular Micro Aerial Vehicles in Constrained Environmentss](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.cs.cmu.edu/~maxim/files/pathplanforMAV_icra13.pdf)
