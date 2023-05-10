@@ -519,6 +519,11 @@ RRT is able to solve problems with 7 dimensions in a matter of milliseconds, and
  RRT method supports planning for non-holonomic systems, while the PRM method does not. This is so because the RRT method can take into consideration the additional constraints (such as a car’s turning radius at a particular speed) when adding nodes to a graph, the same way it already takes into consideration how far away a new node is from an existing tree.
 
 ## Path Smoothing
+Instead of using path directly, some post-processing can be applied to smooth out the paths and improve the result. Connecting two non-neighboring nodes together. If it is able to find pair of nodes whose edges is collision free, then the original path between the two nodes is replaced with the shortcut eedge
+
+![alt text][image64]
+![alt text][image65]
+
 
 Algorithm: Method for smoothing the path by shortcutting
 ```md
