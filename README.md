@@ -59,6 +59,15 @@
 [image49]: img/a49.png "img49"
 [image50]: img/a50.png "img50"
 
+[image51]: img/a51.png "img51"
+[image52]: img/a52.png "img52"
+[image53]: img/a53.png "img53"
+[image54]: img/a54.png "img54"
+[image55]: img/a55.png "img55"
+[image56]: img/a56.png "img56"
+[image57]: img/a57.png "img57"
+[image58]: img/a58.png "img58"
+
 
 # path-planning
 Path Planning
@@ -428,7 +437,8 @@ This is very beneficial in static or mildly-changing environments. However, some
 
 
 ## Rapidly Exploring Random Tree Method (RRT)
-Another commonly utilized sample-based path planning method is the ***randomly exploring random tree method (RRT)***. RRT differs from PRM in thatt it is single query planner. PRM spent its learning phase building up a representation of the entiree workspace.
+Another commonly utilized sample-based path planning method is the ***randomly exploring random tree method (RRT)***. RRT differs from PRM in thatt it is single query planner. PRM spent its learning phase building up a representation of the entiree workspace and work with multiple query. However, RRT disregards tthe need for a comprehensive graph and build on a new for each individual query, taking into account the start and goal positions as it does so. It is more directed graph with a faster computation time. PRM is great for static environments, wheree you can reuse the graph, but certain environment change too quickly. RRT method serves these environments well.
+![alt text][image51]
 
 
 Algorithm pseudocode for the RRT learning phase:
