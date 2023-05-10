@@ -548,7 +548,24 @@ While the first two approaches looked at the path planning problem generically -
 
 Probabilistic path planning using Markov decision processes.
 
-### Markov Decision Process
+## Markov Decision Process
+
+### Recycling Robot Example
+Let's say we have a recycling robot, as an example. The robot’s goal is to drive around its environment and pick up as many cans as possible. It has a set of states that it could be in, and a set of actions that it could take. The robot receives a reward for picking up cans; however, it can also receive a negative reward (a penalty) if it runs out of battery and get stranded.
+
+The robot has a non-deterministic transition model (sometimes called the one-step dynamics). This means that an action cannot guarantee to lead a robot from one state to another state. Instead, there is a probability associated with resulting in each state.
+
+Say at an arbitrary time step t, the state of the robot's battery is high ($S_{t} = high$). In response, the agent decides to search for cans ($A_{t} = search). in such a case, there is a 70% chance of the robot’s battery charge remaining high and a 30% chance that it will drop to low.
+
+### MDP Definition
+A Markov Decision Process is defined by:
+* A set of states: $S$
+* Initial state: $s_{0}$
+* A set of actions: $A$
+* The transition model: $T(s,a,s')$
+* A set of rewards: $R$
+
+
 
 
 
