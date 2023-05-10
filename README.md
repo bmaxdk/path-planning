@@ -471,7 +471,9 @@ If a newly generated node is a far distance away from all other nodes, then the 
 ![alt text][image60]
 ![alt text][image61]
 
-
+This method is slightly biasing. Therefore, one variation of the RRT method is onee that grows two trees. Onee from thee start and one from the goal. It tries to build an edge between the most recently added node and other tree.
+![alt text][image62]
+![alt text][image63]
 
 
 
