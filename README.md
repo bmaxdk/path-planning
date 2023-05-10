@@ -381,14 +381,13 @@ As you see below, one edge is in collision with obstacle while other three are s
 
 First, it must connect each of these start to the graph. PRM does so by looking for the nodes closest to the start and goal and using the local planner to try to build a connection.
 
-When the learning phase is over, then PRM enters the queery phase where it uses the resulting graph to find a path from start to goal. If the process is successful then a search algorithm like A* search can be applied to find the path from start to goal.
+When the learning phase is over, then PRM enters the queery phase where it uses the resulting graph to find a path from start to goal. If the process is successful then a search algorithm like A star search can be applied to find the path from start to goal.
 
 ![alt text][image50]
 
-
-
 Algorithm: Pseudocode for the PRM learning phase:
-```text
+
+```txt
 Initialize an empty graph
 For n iterations:
 
@@ -407,7 +406,8 @@ For n iterations:
 ```
 After the learning phase, comes the query phase.
 
-
+### Setting Parameters
+There are several parameters in the PRM algorithm that require tweaking to achieve success in a particular application. Firstly, the number of iterations can be adjusted - the parameter controls between how detailed the resultant graph is and how long the computation takes. For path planning problems in wide-open spaces, additional detail is unlikely to significantly improve the resultant path. However, the additional computation is required in complicated environments with narrow passages between obstacles. Beware, setting an insufficient number of iterations can result in a ‘path not found’ if the samples do not adequately represent the space.
 
 
 
