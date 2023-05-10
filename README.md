@@ -67,6 +67,15 @@
 [image56]: img/a56.png "img56"
 [image57]: img/a57.png "img57"
 [image58]: img/a58.png "img58"
+[image59]: img/a59.png "img59"
+[image60]: img/a60.png "img60"
+
+[image61]: img/a61.png "img61"
+[image62]: img/a62.png "img62"
+[image63]: img/a63.png "img63"
+[image64]: img/a64.png "img64"
+[image65]: img/a65.png "img65"
+[image66]: img/a66.png "img66"
 
 
 # path-planning
@@ -439,6 +448,33 @@ This is very beneficial in static or mildly-changing environments. However, some
 ## Rapidly Exploring Random Tree Method (RRT)
 Another commonly utilized sample-based path planning method is the ***randomly exploring random tree method (RRT)***. RRT differs from PRM in thatt it is single query planner. PRM spent its learning phase building up a representation of the entiree workspace and work with multiple query. However, RRT disregards tthe need for a comprehensive graph and build on a new for each individual query, taking into account the start and goal positions as it does so. It is more directed graph with a faster computation time. PRM is great for static environments, wheree you can reuse the graph, but certain environment change too quickly. RRT method serves these environments well.
 ![alt text][image51]
+
+ The methods follows start and end. RRT will be explicitly considered from the start. 
+
+Then, build up a representation of the workspace. While the PRM build up a graph, RRT will build a tree. That is a type of graph where each node only has one parent. In a single query planner, only concered about getting from start to goal.
+![alt text][image52]
+
+The lack of lateral connections between seemingly neighboring nodes is less of a concern as see below.
+![alt text][image53]
+
+RRT will randomly generate a node, then find its closest neighbor.
+![alt text][image54]
+
+If the nodes whithin a certain distance, delta of the neighbor, then it can be connected directly if the local planner determine the edge to be collision-free.
+![alt text][image55]
+![alt text][image56]
+![alt text][image57]
+![alt text][image58]
+
+If a newly generated node is a far distance away from all other nodes, then the chance of the edge between the node and its nearest neighbor being collision-free is unlikely. In such a case, instead of connecting to the node, RRT will create a new node in the same direction but a distance delta away. Then it will check for collision and if it's in the clear, the node is added to the tree.
+![alt text][image59]
+![alt text][image60]
+![alt text][image61]
+
+
+
+
+
 
 
 Algorithm pseudocode for the RRT learning phase:
