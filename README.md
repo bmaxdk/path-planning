@@ -405,7 +405,7 @@ When the learning phase is over, then PRM enters the queery phase where it uses 
 
 Algorithm: Pseudocode for the PRM learning phase:
 
-```txt
+```md
 Initialize an empty graph
 For n iterations:
 
@@ -486,19 +486,56 @@ For n iterations, or until an edge connects trees #1 & #2:
     Generate a random configuration (alternating trees).
     If the configuration is collision free: 
         Find the closest neighbour on the tree to the configuration 
-        If the configuration is less than a distance $\delta$ away from the neighbour:
+        If the configuration is less than a distance $$\delta$$ away from the neighbour:
             Try to connect the two with a local planner.
     Else:
         Replace the randomly generated configuration 
             with a new configuration that falls along the same path, 
-            but a distance $\delta$ from the neighbour.
+            but a distance $$\delta$$ from the neighbour.
         Try to connect the two with a local planner. 
 
     If node is added successfully: 
         Try to connect the new node to the closest neighbour.
 ```
 
+### Setting Parameters
+* Sampling method (ie. how a random configuration is generated). As discussed in the video, you can sample uniformly - which would favour wide unexplored spaces, or you can sample with a bias - which would cause the search to advance greedily in the direction of the goal. Greediness can be beneficial in simple planning problems, however in some environments it can cause the robot to get stuck in a local minima. It is common to utilize a uniform sampling method with a small hint of bias.
 
+* Tuned $\delta$. As RRT starts to generate random configurations, a large proportion of these configurations will lie further than a distance $\delta$ from the closest configuration in the graph. In such a situation, a randomly generated node will dictate the direction of growth, while $\delta$ is the growth rate.
+
+* Choosing a small $\delta$ will result in a large density of nodes and small growth rate. On the other hand, choosing a large $\delta$ may result in lost detail, as well as an increasing number of nodes being unable to connect to the graph due to the greater chance of collisions with obstacles. $\delta$ must be chosen carefully, with knowledge of the environment and requirements of the solution.
+
+### Single-Query Planner
+Since the RRT method explores the graph starting with the start and goal nodes, the resultant graph cannot be applied to solve additional queries. RRT is a single-query planner.
+
+
+RRT is, however, much quicker than PRM at solving a path planning problem. This is so because it takes into account the start and end nodes, and limits growth to the area surrounding the existing graph instead of reaching out into all distant corners, the way PRM does. RRT is more efficient than PRM at solving large path planning problems in dynamic environments.
+
+
+RRT is able to solve problems with 7 dimensions in a matter of milliseconds, and may take several minutes to solve problems with over 20 dimensions. In comparison, such problems would be impossible to solve with the combinatorial path planning method.
+
+
+### RRT & Non-holonomic Systems
+ RRT method supports planning for non-holonomic systems, while the PRM method does not. This is so because the RRT method can take into consideration the additional constraints (such as a car’s turning radius at a particular speed) when adding nodes to a graph, the same way it already takes into consideration how far away a new node is from an existing tree.
+
+## Path Smoothing
+
+Algorithm: Method for smoothing the path by shortcutting
+```md
+For n iterations:
+    Select two nodes from the graph
+    If the edge between the two nodes is shorter than the existing path between the nodes:
+        Use local planner to see if edge is collision-free. 
+            If collision-free:
+                Replace existing path with edge between the two nodes.
+
+```
+
+Keep in mind that the path’s distance is not the only thing that can be optimized by the Path Shortcutter algorithm - it could optimize for path smoothness, expected energy use by the robot, safety, or any other measurable factor.
+
+After the Path Shortcutting algorithm is applied, the result is a more optimized path. It may still not be the optimal path, but it should have at the very least moved towards a local minimum. There exist more complex, informed algorithms that can improve the performance of the Path Shortcutter. These are able to use information about the workspace to better guide the algorithm to a more optimal solution.
+
+For large multi-dimensional problems, it is not uncommon for the time taken to optimize a path to exceed the time taken to search for a feasible solution in the first place.
 
 
 
