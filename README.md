@@ -359,6 +359,33 @@ Different sample-based planning approaches exist, each with their own benefits a
 * **Rapidly Exploring Random Tree Method**
 
 ### Probabilistic Roadmap (PRM)
+One common `sample-based path planning` method is called `probablistic roadmap(PRM)`. PRM randomly samples the workspace, building up a graph to represent the free space. All the PRM require is a collision check function to test whether a randomly generated node lies in the freespace or is in collision with an obstacle.
+
+The process of building up a graph is called the `learning phase`.
+![alt text][image43]
+
+It does so by generating a new random configuratiion represented by a node in the graph and checking to see if it is in collision. If node is not in collision, then PRM will try to connectt the node to its neighbors.
+
+![alt text][image44]
+
+There are few different way to connect. PRM can look for any number of neighbors within a certain radius of the node or it could look for thee nodes K nearest neighbors. Once the neighbors have been selected, PRM will see if they can successfully create an edge of its neighbors.
+
+![alt text][image45]
+![alt text][image46]
+![alt text][image47]
+
+As you see below, one edge is in collision with obstacle while other three are safe to add. This node has been added to the graph, and repeat for another randomly generated node.
+![alt text][image48]
+![alt text][image49]
+
+
+First, it must connect each of these start to the graph. PRM does so by looking for the nodes closest to the start and goal and using the local planner to try to build a connection.
+
+When the learning phase is over, then PRM enters the queery phase where it uses the resulting graph to find a path from start to goal. If the process is successful then a search algorithm like A* search can be applied to find the path from start to goal.
+
+![alt text][image50]
+
+
 
 Algorithm: Pseudocode for the PRM learning phase:
 ```text
