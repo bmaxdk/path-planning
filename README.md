@@ -565,3 +565,4 @@ While the first two approaches looked at the path planning problem generically -
     * [Variants of A* - Stanford](http://theory.stanford.edu/~amitp/GameProgramming/Variations.html)
     
     
+[Path Planning for Non-Circular Micro Aerial Vehicles in Constrained Environments,](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.cs.cmu.edu/~maxim/files/pathplanforMAV_icra13.pdf)
