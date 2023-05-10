@@ -486,12 +486,12 @@ For n iterations, or until an edge connects trees #1 & #2:
     Generate a random configuration (alternating trees).
     If the configuration is collision free: 
         Find the closest neighbour on the tree to the configuration 
-        If the configuration is less than a distance $$\delta$$ away from the neighbour:
+        If the configuration is less than a distance $\delta$ away from the neighbour:
             Try to connect the two with a local planner.
     Else:
         Replace the randomly generated configuration 
             with a new configuration that falls along the same path, 
-            but a distance $$\delta$$ from the neighbour.
+            but a distance $\delta$ from the neighbour.
         Try to connect the two with a local planner. 
 
     If node is added successfully: 
