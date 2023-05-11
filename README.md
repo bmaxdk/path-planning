@@ -620,6 +620,19 @@ Let’s look at the bottom mountain cell first. From here, it is intuitively obv
 
 $expected reward = 0.8*(−1)+0.1*(−3)+0.1*(−3)$ = -1.4
 
+All of the expected rewards are calculated in this way, taking into account the transition model for this particular robot.
+
+![alt text][image70]
+
+### Selecting a Policy
+Now that we have an understanding of our expected rewards, we can select a policy and evaluate how efficient it is. Once again, a policy is just a mapping from states to actions. If we review the set of actions depicted in the image above, and select just one action for each state - i.e. exactly one arrow leaving each cell (with the exception of the hazard and goal states) - then we have ourselves a policy.
+
+However, we’re not looking for any policy, we’d like to find the optimal policy. For this reason, we’ll need to study the utility of each state to then determine the best action to take from each state.
+
+
+
+
+
 # Review
 ## Discrete Path Planning
 * Continuous Representation
