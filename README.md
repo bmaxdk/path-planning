@@ -606,7 +606,9 @@ With the robot’s transition model identified and appropriate rewards assigned 
 Solution to a Markov Decision Process is called a `policy`, and is denoted with the letter `π`.
 
 ### Definition
-A policy is a mapping from states to actions. For every state, a policy will inform the robot of which action it should take. An `optimal policy`, denoted `π*`, informs the robot of the ***best action*** to take from any state, to maximize the overall reward. We’ll study optimal policies in more detail below.
+A policy is a mapping from states to actions. For every state, a policy will inform the robot of which action it should take. An `optimal policy`, denoted `π*`, informs the robot of the ***best action*** to take ***from any state, to maximize the overall reward***. It is highly recommended that you are familiar with the basics of Reinforcement Learning (RL), ie. what a policy is, how state-value is calculated, and how the Bellman equations can be used to compute the optimal policy. Go through these RL concepts to solve gridworld problem.
+
+### Developing a Policy
 
 
 
@@ -634,3 +636,7 @@ A policy is a mapping from states to actions. For every state, a policy will inf
 * RRT*: RRT* is a variant of RRT that tries to smooth the tree branches at every step. It does so by looking to see whether a child node can be swapped with it's parent (or it's parent's parent, etc) to produce a more direct path. The result is a less zig-zaggy and more optimal path.
 
 [Path Planning for Non-Circular Micro Aerial Vehicles in Constrained Environmentss](https://www.cs.cmu.edu/~maxim/files/pathplanforMAV_icra13.pdf)
+
+## Reinforcement Learning
+* [Wikipedia - Reinforcement Learning](https://en.wikipedia.org/wiki/Reinforcement_learning)
+* [Reinforcement Learning 101 - solve the gridworld state-value function](https://towardsdatascience.com/reinforcement-learning-rl-101-with-python-e1aa0d37d43b)
