@@ -618,7 +618,7 @@ Recall that the reward for entering an `empty cell is -1`, a `mountainous cell -
 
 Let’s look at the bottom mountain cell first. From here, it is intuitively obvious that moving right is the best action to take, so let’s calculate that one. If the robot’s movements were deterministic, the cost of this movement would be trivial (moving to an open cell has a reward of -1). However, since our movements are non-deterministic, we need to evaluate the `expected reward` of this movement. The robot has a probability of 0.8 of successfully moving to the open cell, a probability of 0.1 of moving to the cell above, and a probability of 0.1 of bumping into the wall and remaining in its present cell.
 
-$expected reward = 0.8*(−1)+0.1*(−3)+0.1*(−3)$ = -1.4
+$expected_reward = 0.8*(−1)+0.1*(−3)+0.1*(−3)$ = -1.4
 
 All of the expected rewards are calculated in this way, taking into account the transition model for this particular robot.
 
