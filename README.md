@@ -565,7 +565,7 @@ A Markov Decision Process is defined by:
 * The transition model: $T(s,a,s')$
 * A set of rewards: $R$
 
-The transition model is the probability of reaching a state `s'` from a statee s by executing action `a`. It is often written as `$T(s,a,s')$`
+The transition model is the probability of reaching a state `s'` from a statee s by executing action `a`. It is often written as `T(s,a,s')`
 
 
 
