@@ -605,7 +605,8 @@ With the robot’s transition model identified and appropriate rewards assigned 
 ## Policies
 Solution to a Markov Decision Process is called a `policy`, and is denoted with the letter `π`.
 
-
+### Definition
+A policy is a mapping from states to actions. For every state, a policy will inform the robot of which action it should take. An `optimal policy`, denoted `π*`, informs the robot of the ***best action*** to take from any state, to maximize the overall reward. We’ll study optimal policies in more detail below.
 
 
 
