@@ -598,6 +598,15 @@ As you can see, entering a state that is not the goal state has a reward of -1 i
 
 With the robot’s transition model identified and appropriate rewards assigned to all areas of the environment, we can now construct a policy. Read on to see how that’s done in probabilistic path planning!
 
+## Policies
+Solution to a Markov Decision Process is called a `policy`, and is denoted with the letter `π`.
+
+
+
+
+
+
+
 # Review
 ## Discrete Path Planning
 * Continuous Representation
