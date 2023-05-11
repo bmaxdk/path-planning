@@ -551,7 +551,7 @@ Probabilistic path planning using Markov decision processes.
 ## Markov Decision Process
 
 ### Recycling Robot Example
-Let's say we have a recycling robot, as an example. The robot’s goal is to drive around its environment and pick up as many cans as possible. It has a set of states that it could be in, and a set of actions that it could take. The robot receives a reward for picking up cans; however, it can also receive a negative reward (a penalty) if it runs out of battery and get stranded.
+Let's say we have a recycling robot, as an example. The robot’s goal is to drive around its environment and pick up as many cans as possible. It has a set of **states** that it could be in, and a set of actions that it could take. The robot receives a reward for picking up cans; however, it can also receive a negative reward (a penalty) if it runs out of battery and get stranded.
 
 The robot has a non-deterministic transition model (sometimes called the one-step dynamics). This means that an action cannot guarantee to lead a robot from one state to another state. Instead, there is a probability associated with resulting in each state.
 
