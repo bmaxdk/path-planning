@@ -594,8 +594,9 @@ These rewards will help guide the rover to a path that is efficient, but also sa
 
 The image below displays the environment with appropriate rewards assigned.
 ![alt text][image68]
+As you can see, entering a state that is not the goal state has a reward of -1 if it is a flat-land tile, and -3 if it is a mountainous tile. The hazardous pond has a reward of -50, and the goal has a reward of 100.
 
-
+With the robot’s transition model identified and appropriate rewards assigned to all areas of the environment, we can now construct a policy. Read on to see how that’s done in probabilistic path planning!
 
 # Review
 ## Discrete Path Planning
