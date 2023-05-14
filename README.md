@@ -680,12 +680,12 @@ The image below that shows the set of actions with just the optimal actions rema
 ![alt text][image71]
 
 ### Discounting
-One simplification that you may have noticed us make, is omit the discounting rate γ. In the above example, γ=1 and all future actions were considered to be just as significant as the present action. This was done solely to simplify the example.
+One simplification that you may have noticed us make, is omit the discounting rate $\gamma$. In the above example, $\gamma = 1$s and all future actions were considered to be just as significant as the present action. This was done solely to simplify the example.
 
 In reality, discounting is often applied in robotic path planning, since the future can be quite uncertain. The complete equation for the utility of a state is provided below:
 $U^{\pi}(s)$ = $E$[
 $∑_{t=0}^{∞}$
-γ
+$\gamma$
 $R(s_{t})|\pi, s_{0}=s$]
 
 ## Value Iteration Algorithm
