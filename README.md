@@ -639,7 +639,7 @@ However, we’re not looking for any policy, we’d like to find the ***optimal 
 The ***utility*** of a state (otherwise known as the ***state-value***) represents how attractive the state is with respect to the goal. Recall that for each state, the state-value function yields the expected return, if the agent (robot) starts in that state and then follows the policy for all time steps. In mathematical notation, this can be represented as so:
 
 $U^{\pi}(s) = E[\sum^{\inf}_{t=0}R(s_{t})|\pi, s_{0}=s]$
-$U^{\pi}(s)$
+$U^{\pi}(s)$ = $E[\sum^{\inf}_{t=0}R(s_{t})$
 
 # Review
 ## Discrete Path Planning
