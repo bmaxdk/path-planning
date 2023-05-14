@@ -655,7 +655,35 @@ Recall that the optimal policy, denoted $\pi^{*}(s) = argmax E$
 $U^{\pi}(s)$
 ]
 
+## Value Iteration Algorithm
+The process that we went through to determine the optimal policy for the mountainous environment was fairly straightforward, but it did take some intuition to identify which action was optimal for every state. In larger more complex environments, intuition may not be sufficient. In such environments, an algorithm should be applied to handle all computations and find the optimal solution to an MDP. One such algorithm is called the Value Iteration algorithm. 
 
+The Value Iteration algorithm will initialize all state utilities to some arbitrary value - say, zero. Then, it will iteratively calculate a more accurate state utility for each state, using
+
+$U(s) = R(s)$ 
++ $\gamma$
+$max_{a}$
+$Σ_{s'}$
+$T(s,a,s')U(s')$
+
+Algorithm
+```md
+U' = 0
+loop until close-enough(U, U')
+    U = U'
+    for s in S, do:
+        U(s) = R(s) + \gamma max_{a} Σ_{s'} T(s,a,s')U(s')
+return U
+```
+With every iteration, the algorithm will have a more and more accurate estimate of each state’s utility. The number of iterations of the algorithm is dictated by a function ***close-enough*** which detects convergence. One way to accomplish this is to evaluate the root mean square error,
+
+$RMS = 1/|s| * \sqrt(Σ_{s} (U(s)-U'(s))^2)$
+
+Once this error is below a predetermined threshold, the result has converged sufficiently.
+
+RMA(U, U') < ϵ
+
+This algorithm finds the optimal policy to the MDP, regardless of what U' is  is initialized to (although the efficiency of the algorithm will be affected by a poor U')
 
 
 # Review
