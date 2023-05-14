@@ -693,8 +693,8 @@ The process that we went through to determine the optimal policy for the mountai
 
 The Value Iteration algorithm will initialize all state utilities to some arbitrary value - say, zero. Then, it will iteratively calculate a more accurate state utility for each state, using
 
-$U(s) = R(s)$ 
-+ $\gamma$
+$U(s) = R(s)+$ 
+$\gamma$
 $max_{a}$
 $Σ_{s'}$
 $T(s,a,s')U(s')$
