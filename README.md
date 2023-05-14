@@ -648,12 +648,45 @@ $R(s_{t})|\pi, s_{0}=s$]
 
 The utility of a state is the sum of the rewards that an agent would encounter if it started at that state and followed the policy to the goal.
 
+$U^{\pi}(s)$ = $E$[
+$∑_{t=0}^{∞}$
+$R(s_{t})|\pi, s_{0}=s$]
+
+$U^{\pi}(s)$ = R(s) + $E$[
+$∑_{t=0}^{∞}$
+$R(s_{t})|\pi, s_{0}=s$']
+
+$U^{\pi}(s)$ = R(s) + $U^{\pi}(s')$
+
 
 ### Determining the Optimal Policy
-Recall that the optimal policy, denoted $\pi^{*}(s) = argmax E$
+Recall that the optimal policy, denoted, $\pi^{*}$, informs the robot of the best action to take from any state, to maximize the overall reward
+
+$\pi^{*}(s) = argmax E$
 [
 $U^{\pi}(s)$
 ]
+
+In a state ***s***, the optimal policy $\pi^{*}$ will choose the action a that maximizes the utility of s (which, due to its iterative nature, maximizes the utilities of all future states too). While the math may make it seem intimidating, it’s as easy as looking at the set of actions and choosing the best action for every state.
+
+The process of selecting each state’s most rewarding action continues, until every state is mapped to an action. These mappings are precisely what make up the policy.
+
+### Applying the Policy
+Once this process is complete, the agent (our robot) will be able to make the best path planning decision from every state, and successfully navigate the environment from any start position to the goal. The optimal policy for this environment and this robot is provided below.
+
+The image below that shows the set of actions with just the optimal actions remaining. Note that from the top left cell, the agent could either go down or right, as both options have equal rewards.
+
+![alt text][image72]
+![alt text][image71]
+
+### Discounting
+One simplification that you may have noticed us make, is omit the discounting rate γ. In the above example, γ=1 and all future actions were considered to be just as significant as the present action. This was done solely to simplify the example.
+
+In reality, discounting is often applied in robotic path planning, since the future can be quite uncertain. The complete equation for the utility of a state is provided below:
+$U^{\pi}(s)$ = $E$[
+$∑_{t=0}^{∞}$
+γ
+$R(s_{t})|\pi, s_{0}=s$]
 
 ## Value Iteration Algorithm
 The process that we went through to determine the optimal policy for the mountainous environment was fairly straightforward, but it did take some intuition to identify which action was optimal for every state. In larger more complex environments, intuition may not be sufficient. In such environments, an algorithm should be applied to handle all computations and find the optimal solution to an MDP. One such algorithm is called the Value Iteration algorithm. 
@@ -665,6 +698,8 @@ $U(s) = R(s)$
 $max_{a}$
 $Σ_{s'}$
 $T(s,a,s')U(s')$
+
+
 
 Algorithm
 ```md
