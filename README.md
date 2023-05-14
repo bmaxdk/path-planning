@@ -650,7 +650,9 @@ The utility of a state is the sum of the rewards that an agent would encounter i
 
 
 ### Determining the Optimal Policy
-Recall that the optimal policy, denoted $\pi^{*}(s) = argmax E$[$U^{\pi}(s)$
+Recall that the optimal policy, denoted $\pi^{*}(s) = argmax E$
+[
+$U^{\pi}(s)$
 ]
 
 
