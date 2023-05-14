@@ -642,6 +642,20 @@ $U^{\pi}(s)$ = $E$[
 $∑_{t=0}^{∞}$
 $R(s_{t})|\pi, s_{0}=s$]
 
+* $U^{\pi}(s)$ : Utility of a state s
+* $E$ : expected value
+* $R(s)$ : reward for state s
+
+The utility of a state is the sum of the rewards that an agent would encounter if it started at that state and followed the policy to the goal.
+
+
+### Determining the Optimal Policy
+Recall that the optimal policy, denoted $\pi^{*}(s) = argmax E$[$U^{\pi}(s)$
+]
+
+
+
+
 # Review
 ## Discrete Path Planning
 * Continuous Representation
