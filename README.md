@@ -635,8 +635,9 @@ Now that we have an understanding of our expected rewards, we can select a polic
 
 However, we’re not looking for any policy, we’d like to find the ***optimal policy***. For this reason, we’ll need to study the utility of each state to then determine the best action to take from each state.
 
-
-
+## State Utility
+The ***utility*** of a state (otherwise known as the ***state-value***) represents how attractive the state is with respect to the goal. Recall that for each state, the state-value function yields the expected return, if the agent (robot) starts in that state and then follows the policy for all time steps. In mathematical notation, this can be represented as so:
+$U^{\pi}(s) = E[\sum^{\inf}_{t=0}R(s_{t})|\pi, s_{0}=s]$
 
 
 # Review
