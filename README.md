@@ -640,6 +640,7 @@ The ***utility*** of a state (otherwise known as the ***state-value***) represen
 
 $U^{\pi}(s) = E[\sum^{\inf}_{t=0}R(s_{t})|\pi, s_{0}=s]$
 $U^{\pi}(s)$ = $E$[$∑_{t=0}^{∞}$
+$∑_{t=0}^{∞}$
 
 $R(s_{t})|\pi, s_{0}=s$]
 
